@@ -1,6 +1,5 @@
-随着 API 稳定化改造、若干大型基础结构进行重构，Deno 1.0 版本正式发布。同时
-，shipping the single most requested feature ⚠️，2020 年 Deno 项目迎来了众多的挑
-战和变化。
+随着 API 的稳定化改造、若干大型基础架构的重构，以及诸多备受关注的功能开放，Deno
+1.0 版本正式发布。2020 年，Deno 迎来了众多的挑战和变化。
 
 请填写[这份 Deno 调查问卷](https://forms.gle/hbhP46LUAfVFMggU6)来向我们反馈以让
 Deno 在 2021 年变得更好。
@@ -9,14 +8,14 @@ Deno 在 2021 年变得更好。
 
 ## 一月：再见 libdeno，你好 rusty_v8
 
-`libdeno` 是一个 C++ 库，可以桥接 Deno 中的 V8 引擎和 Rust 代码 ⚠️。此库难以理解
-并在其上开发额外的功能。基于这种情况，最终导致了 `rusty_v8` 在 2019 年秋季的诞生
-。[`rusty_v8`](https://github.com/denoland/rusty_v8) 是一个为 V8 引擎提供相关
-API 的 Rust 库 ⚠️。到了同年 12 月，`rusty_v8` 已具有所有必需的绑定 ⚠️ 来替换
-`libdeno`。这项工作始于 2019 年年底，当时先使用 `rusty_v8` 重写了 `libdeno` 的一
-部分。由于 Deno 代码库中测试覆盖率的不断提高，我们很有信心地继续推进了相关工作，
-并在两周内完成了这项工作。`libdeno` 最终在 0.29.0 版本中被完全替换删除，此后
-rusty_v8 也经历了绑定类型安全性的重要重构 ⚠️。
+`libdeno` 是一个 C++ 库，可以方便地桥接 Deno 中的 V8 引擎和 Rust 代码。此库难以
+理解，也难以在其上开发额外的功能。基于这种情况，最终导致了 `rusty_v8` 于 2019 年
+秋季诞生。[`rusty_v8`](https://github.com/denoland/rusty_v8) 是一个为 V8 引擎提
+供相关 API 的 Rust crate。同年 12 月，`rusty_v8` 已具备所有必需的 binding 条件来
+替换 `libdeno`。这项工作始于 2019 年年底，当时先使用 `rusty_v8` 重写了 `libdeno`
+的一部分。由于 Deno 代码库中测试覆盖率的不断提高，我们很有信心地继续推进，并在两
+周内完成了这项工作。`libdeno` 最终在 0.29.0 版本中被完全替换删除，此后 rusty_v8
+也经历了绑定类型安全性相关的重要重构。
 
 **本月发布的版本：**
 
@@ -31,18 +30,17 @@ rusty_v8 也经历了绑定类型安全性的重要重构 ⚠️。
 本月我们彻底地重构了 `deno fmt`。与此之前，`deno fmt` 是一个简单的子命令，其在背
 后只是最终指向 `prettier` 的“deno run”的一个别名。这意味着在首次运行 `deno fmt`
 以及每次 `prettier` 升级后，用户都必须下载 `prettier` 的最新版本。这和 Deno 承诺
-的内置工具开箱即用的原则很不契合。同时，`prettier` 真的很慢，其性能问题也值得被
-质询【⚠️ 质询？】。
+的内置工具开箱即用的原则很不契合。同时，`prettier` 真的很慢，其性能也有很多问题
+。
 
 我们被推荐了 [David Sherret](https://github.com/dsherret) 的
 [dprint](https://dprint.dev/) 库——一个基于
-[Kang Dong Yun](https://github.com/kdy1) 的 SWC JavaScript 编辑器并由 Rust 编写
-的代码格式化工具。`dprint` 可以和 `prettier` 库一样的工作，但速度却要快上好几个
-数量级。经过了一些初步测算后，我们决定在 `deno fmt` 中使用 `dprint`。
+[Kang Dong Yun](https://github.com/kdy1) 的 SWC JavaScript 解析器、并由 Rust 编
+写的代码格式化工具。`dprint` 可以和 `prettier` 库一样的工作，但速度却要快上好几
+个数量级。经过了一些初步测算后，我们决定在 `deno fmt` 中使用 `dprint`。
 
-`deno test` 也有同样的问题，在首次运行该命令时会从标准库中下载模块。这导致添加了
-新的 `Deno.test()` API 和 `deno test` CLI 子命令【⚠️ which made testing in Deno
-first class citizen.】
+`deno test` 也有在首次运行该命令时从标准库中下载模块的问题。这导致添加了新的
+`Deno.test()` API，并且 `deno test` CLI 子命令也让测试成为了 Deno 的一等公民。
 
 **本月发布的版本：**
 
@@ -54,13 +52,10 @@ first class citizen.】
 ## 三月：V8 调试器、deno doc、deno upgrade
 
 阻碍 Deno 1.0 发布正式版的主要原因是缺少 Chrome Devtools 的支持。因此，我们花了
-很多精力来增加对 V8 调试器的支持以及使用 Chrome Devtools 连接到 Deno 进程的能力
-。
+很多精力来增加对 V8 调试器的支持以及提高使用 Chrome Devtools 连接到 Deno 进程的
+能力。
 
-CLI 中也添加了两个新的命令：
-
-- `deno doc`
-- `deno upgrade`
+CLI 中也添加了两个新的命令：`deno doc` 和 `deno upgrade`。
 
 我们同时经历了构建过程的巨大改进。与此之前，Deno 中的每一次构建都会导致 V8 从源
 码级别进行重新构建。V8 是一个庞大的 C++ 项目，常常需要花费 30 多分钟来对其进行构
@@ -76,11 +71,11 @@ rusty_v8 在 Github 发行版上生成和下载预构建过的静态库的能力
 - [0.37.1](https://github.com/denoland/deno/releases/tag/v0.37.1)
 - [0.38.0](https://github.com/denoland/deno/releases/tag/v0.38.0)
 
-## 四月：破坏所有的 API 来构造稳定性 ⚠️
+## 四月：破坏所有的 API 来构造重要的稳定性
 
 本月为 1.0 的正式发布做准备，重点关注在审阅 `Deno` global 全局中的 API。这导致了
-诸多破坏性的改动。对此我们需要很谨慎：我们不确定的所有 API 都需要被移到
-`--ubstable` 标志之后。
+诸多破坏性地改动。对此我们很谨慎：我们将不确定的所有 API 都需要被移到
+`--unstable` 标志之后。
 
 这也是 1.0 版本的重要承诺；在 2.0 发布之前，标记为稳定的 Deno API 将不会有破坏性
 的更改。
@@ -101,23 +96,21 @@ rusty_v8 在 Github 发行版上生成和下载预构建过的静态库的能力
 - JSON imports
 - WASM imports
 - `window.location`  API
-- Rust API for  `deno` crate【⚠️ 需要怎么翻译】
+- Rust API for deno crate
 
-删除的原因是，我们不想因为 JSON/WASM imports 缺少底层规范支持、或者 Rust
-API【⚠️or additional maintenance burden in case of Rust API for  `deno`
- crate.】的情况下提供相关 API。
+删除的原因是，我们不想因为 JSON/WASM imports 缺少底层规范支持、或者 deno crate
+下有 Rust API 额外维护负担的情况下提供相关 API。
 
 终于在 5 月 13 日
 ——[Ryan 最初发表 Deno 演讲](https://www.youtube.com/watch?v=M3BM9TB-8yA)的整整两
 年后，我们正式发布了 1.0。
 
-在社交媒体上，这个版本非常受到欢迎。我们的[相关博客](https://deno.land/v1)被广为
-传播。我们也收获了大量的新用户和新贡献者。
+在社交媒体上，这个版本非常受欢迎。我们的[相关博客](https://deno.land/v1)被广为传
+播。我们也收获了大量的新用户和新贡献者。
 
-But the dust had barely settled before we were back to work on another major
-component of the runtime【⚠️】：TypeScript 宿主中的依赖关系分析是使用
-[SWC](<(https://swc.rs/)>) 重写的。这次的改动标志着我们开始着手用 Rust 来重写
-TypeScript 基础结构的一些部分。
+发布后我们紧张地回到了有关运行时重要组件的工作中：TypeScript 宿主中的依赖关系分
+析是使用 [SWC](https://swc.rs/) 重写的。这次的改动标志着我们开始着手用 Rust 来重
+写 TypeScript 基础架构的一些部分。
 
 **本月发布的版本：**
 
@@ -131,14 +124,13 @@ TypeScript 基础结构的一些部分。
 
 ## 六月：增量类型检查以及 deno lint
 
-1.0 发布后，从社区中收到最多的反馈之一就是 TypeScript 的编译和类型检查非常地慢。
-此后我们着眼于改进 TSC 集成来支持增量类型检查【⚠️ 增量类型检查？】。经过几次反复
-试验的 PR，我们便能使缩短开发周期的功能正常跑通，并达到缩短的目的。尽管我们通过
-利用 TSC 的增量 API 设法提高了类型的检查的速度，但我们仍然需要依靠它来 emit 已转
-换的源【⚠️ emit transpiled sources】。TypeScript 的伟大设计原则之一是它只是一个
-具有附加预发的 JavaScript，因此剥离类型信息（转换为 JavaScript）是相对容易的操作
-。所以我们设定了能够在 Rust 中使用 SWC 进行转移的同时，继续使用 TSC 进行类型检查
-的目标。
+1.0 发布后，从社区中收到最多的反馈之一就是 TypeScript 的编译和类型检查非常得慢。
+此后我们着眼于改进 TSC 集成来支持增量类型检查。经过几次反复试验的 PR，我们能够使
+功能正常工作，并且显著地改进了开发效率。尽管我们通过利用 TSC 的增量 API 设法提高
+了类型检查的速度，但我们仍然需要依靠它来 emit 已转义的源。TypeScript 的伟大设计
+原则之一是它只是一个具有附加语法的 JavaScript，因此剥离类型信息（转换为
+JavaScript）是相对容易的操作。所以我们设定了能够在 Rust 中使用 SWC 进行转移的同
+时，继续使用 TSC 进行类型检查的目标。
 
 经过几个月的开发，在一个单独的仓库中，我们添加了新的 `deno lint` 子命令。这是另
 一个建立在 SWC JavaScript 解析器之上的项目。
@@ -149,28 +141,20 @@ TypeScript 基础结构的一些部分。
 - [1.0.5](https://github.com/denoland/deno/releases/tag/v1.0.5)
 - [1.1.0](https://github.com/denoland/deno/releases/tag/v1.1.0)
 - [1.1.0](https://github.com/denoland/deno/releases/tag/v1.1.0)
-- [1.1.2](https://github.com/denoland/deno/releases/tag/v1.1.2)
-
-**Releases that month:**
-
-- [1.0.4](https://github.com/denoland/deno/releases/tag/v1.0.4)
-- [1.0.5](https://github.com/denoland/deno/releases/tag/v1.0.5)
-- [1.1.0](https://github.com/denoland/deno/releases/tag/v1.1.0)
-- [1.1.0](https://github.com/denoland/deno/releases/tag/v1.1.0)
-- [1.1.2](https://github.com/denoland/deno/releases/tag/v1.1.2)
+- [1.1.2](https://github.com/denoland/deno/releases/tag/v1.1.2)。
 
 ## 七月：将内部运行时代码从 TypeScript 转换为 JavaScript
 
 这个月，我们做出了一个艰难的决定
 ：[将内部运行时代码从 TypeScript 转换为 JavaScript](https://github.com/denoland/deno/pull/6793)。
 有几个因素导致了我们做出这个决定：Deno 内部运行时代码的每个构建过程中，类型检查
-、[快照](https://v8.dev/blog/custom-startup-snapshots)前绑定【⚠️】，都是复杂而缓
-慢的构建步骤。我们有两个独立的 TypeScript 编译器宿主。一个是 `deno_typescript`
-crate 只用于构建过程，另一个被包含在 `Deno` 二进制文件中。此外，整个过程对构建时
-间有显著影响：2 分钟的增量重建【⚠️】！通过使用普通的 JavaScript，我们能够极大地
-简化内部构建依赖关系和总体复杂性。因为实际的 JavaScript 代码是由 TypeScript 编译
-器作为单个文件包生成的，所以我们几乎无法控制输出代码的类型。ES 模块被转换为使用
-捆绑包中的 SystemJS 加载程序，这为最终捆绑包添加了大量代码【⚠️】。
+、[快照](https://v8.dev/blog/custom-startup-snapshots)前绑定，都是复杂而缓慢的构
+建步骤。我们有两个独立的 TypeScript 编译器宿主。一个是 `deno_typescript` crate
+只用于构建过程，另一个被包含在 `Deno` 二进制文件中。此外，整个过程对构建时间有显
+著影响：2 分钟的增量重建！通过使用普通的 JavaScript，我们能够极大地简化内部构建
+依赖关系和总体复杂性。因为实际的 JavaScript 代码是由 TypeScript 编译器作为单个文
+件包生成的，所以我们几乎无法控制输出代码的类型。ES 模块被转换为使用 bundle 的
+SystemJS 加载程序，这为最终 bundle 添加了大量代码。
 
 **本月发布的版本：**
 
@@ -190,7 +174,7 @@ crate 只用于构建过程，另一个被包含在 `Deno` 二进制文件中。
 
 由于在使用 Deno 基础设施时进行了一些非公开工作，我们开始努力将 Deno 系统分解成更
 小的“op crates”，可以混合和匹配以生成定制的 V8 运行时。8 月份，我们朝着这个目标
-迈出了第一步，发布了 [deno_web crate](https://crates.io/crates/deno_web)，它提供
+迈出了第一步，发布了 [deno_web](https://crates.io/crates/deno_web) crate，它提供
 了一些基本的 Web API，比如 `Event`、`TextUncoder` 和 `TextDecoder`。
 
 这个月，基准系统使用 Rust 重写，这标志着减少 Deno 项目的构建依赖性的单调工作的开
@@ -225,7 +209,7 @@ crate 只用于构建过程，另一个被包含在 `Deno` 二进制文件中。
 本月发生的最大变化是在 TypeScript 编译器宿主中默认启用 `isolatedModules` 选项。
 此设置更改了 TypeScript 的行为，以确保每个文件都可以由 TSC 以外的工具（如 SWC 和
 Babel）隔离编译（而无需知道其类型或其它模块）。这一变化对模块生态系统产生了重大
-影响，一度使得一些流行的模块无法使用，直到维护人员调整代码来支持
+影响，一度使得一些流行的模块无法使用，直到维护人员调整代码以支持
 `isolatedModules`。
 
 这个月我们还在 SWC 中采用了新的 bundle 特性，这是对原始 TypeScript 编译器转向使
@@ -240,7 +224,7 @@ Babel）隔离编译（而无需知道其类型或其它模块）。这一变化
 - [1.5.0](https://github.com/denoland/deno/releases/tag/v1.5.0)
 - [1.5.1](https://github.com/denoland/deno/releases/tag/v1.5.1)
 
-## 十一月：大改 TSC 编译器基础结构
+## 十一月：大改 TSC 编译器基础架构
 
 本月我们看到了 [Kitson Kelly](https://github.com/kitsonk) 长达数周重写编译管道
 （compilation pipeline）的总结。它进一步地提高了 TypeScript 的编译速度，更最重要
@@ -248,18 +232,17 @@ Babel）隔离编译（而无需知道其类型或其它模块）。这一变化
 
 [deno_crypto op crate](https://crates.io/crates/deno_crypto) 也被添加。
 
-**本月发布的版本：**  1.5.2, 1.5.3, 1.5.4
+**本月发布的版本：** 1.5.2、1.5.3、1.5.4。
 
 ## 十二月：自包含的二进制文件以及 LSP
 
 [1.6.0 发布说明](https://deno.land/posts/v1.6)。
 
 在 12 月，我们发布了 1.6 版本，包含了两个里程碑特性：自包含的二进制文件和语言服
-务器。`deno compile` 是 deno 的 bug 追踪器中被访问最多的一个功能【⚠️ single most
-requested】。
+务器。`deno compile` 是 deno 的 bug 追踪器中受期待的特色之一。
 
 通过提供的内置语言服务器提高了所有能够使用 LSP 协议的编辑器的良好开发体验。它导
-致了对 vscode_code 的第三次翻新，此项工作目前还在进行中。
+致了对 vscode_deno 的第三次翻新，此项工作目前还在进行中。
 
 **本月发布的版本：**
 
