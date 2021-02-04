@@ -82,7 +82,7 @@ function Markdown(props: MarkdownProps): React.ReactElement | null {
             <a name="${slug}" class="anchor" href="#${slug}">
               <span class="octicon-link"></span>
             </a>
-            ${text.replace(REG_ID, '')}
+            ${text.replace(REG_ID, "")}
           </h${level}>`;
         },
         link(href, title, text) {
