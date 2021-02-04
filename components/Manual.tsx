@@ -501,11 +501,11 @@ function Manual(): React.ReactElement {
                     source={content
                       .replace(/\$STD_VERSION/g, stdVersion)
                       .replace(/\$CLI_VERSION/g, version)}
-                    displayURL={`https://deno.land/manual${
+                    displayURL={`https://deno-cn.vercel.app/manual${
                       version ? `@${version}` : ""
                     }${path}`}
                     sourceURL={sourceURL}
-                    baseURL={`https://deno.land/manual${
+                    baseURL={`https://deno-cn.vercel.app/manual${
                       version ? `@${version}` : ""
                     }`}
                   />
