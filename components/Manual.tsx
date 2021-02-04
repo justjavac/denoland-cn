@@ -223,7 +223,7 @@ function Manual(): React.ReactElement {
         <title>Manual | Deno</title>
         <link
           rel="preconnect"
-          href="https://BH4D9OD16A-dsn.algolia.net"
+          href="https://w2n54pbnc9-dsn.algolia.net"
           crossOrigin="true"
         />
       </Head>
@@ -237,7 +237,8 @@ function Manual(): React.ReactElement {
             }}
             onClose={onClose}
             indexName="deno_manual"
-            apiKey="a05e65bb082b87ff0ae75506f1b29fce"
+            appId="W2N54PBNC9"
+            apiKey="aedf8ec92c7e58c869255da0b7b4dd3c"
             navigator={{
               navigate({ suggestionUrl }: any) {
                 push("/[...rest]", suggestionUrl);
