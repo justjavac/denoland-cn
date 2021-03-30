@@ -177,9 +177,13 @@ function Header({
                     参考手册
                   </a>
                 </Link>
-                <Link href="/posts">
+                <Link href="https://deno.com/blog">
                   <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">
+<<<<<<< HEAD
                     新闻
+=======
+                    Blog
+>>>>>>> 4c3a9a7c65dbb89f964cf1eca5189288480fb5a3
                   </a>
                 </Link>
                 <a
