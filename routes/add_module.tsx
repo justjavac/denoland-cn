@@ -46,8 +46,13 @@ export default function AddModulePage() {
           const MODULENAME_INVALID_CLASSES = ['border-red-300', 'hover:border-red-300', 'focus:border-red-300'];
         `}
       </script>
+<<<<<<< HEAD
       <div class={tw`bg-gray`}>
         <Header selected="第三方模块" />
+=======
+      <div>
+        <Header selected="Third Party Modules" />
+>>>>>>> b44b7f64175f9d354333ba5b476f2a65e165849d
         <form
           class={tw`section-x-inset-lg mt-8`}
           // @ts-ignore onSubmit does support strings
@@ -248,7 +253,7 @@ export default function AddModulePage() {
                   <div class={tw`rounded-md shadow-sm mt-12`}>
                     <button
                       role="submit"
-                      class={tw`w-full flex justify-center py-3 border border-gray-300 text-md font-medium rounded-lg text-gray-700 bg-gray-100 hover:text-gray-800 hover:bg-gray-50 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out`}
+                      class={tw`w-full flex justify-center py-3 border border-gray-300 font-medium rounded-lg text-gray-700 bg-gray-100 hover:text-gray-800 hover:bg-gray-50 focus:outline-none focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition duration-150 ease-in-out`}
                     >
                       Submit
                     </button>
