@@ -73,14 +73,14 @@ export function FileDisplay(props: {
             {props.repositoryURL &&
               (
                 <a href={props.repositoryURL} class={tw`link ml-2 sm:ml-4`}>
-                  Repository
+                  仓库
                 </a>
               )}
           </div>
           {filetypeIsJS(filetype) &&
             (
               <div class={tw`ml-4`}>
-                <a href={doc.href} class={tw`link`}>Documentation</a>
+                <a href={doc.href} class={tw`link`}>文档</a>
               </div>
             )}
           {filetype === "markdown" && (
@@ -93,7 +93,7 @@ export function FileDisplay(props: {
                   !isRaw ? "bg-white" : "bg-gray-100"
                 }`}
               >
-                <span class={tw`sr-only`}>Preview</span>
+                <span class={tw`sr-only`}>预览</span>
                 <Icons.Page />
               </a>
               <a
@@ -102,7 +102,7 @@ export function FileDisplay(props: {
                   isRaw ? "bg-white" : "bg-gray-100"
                 }`}
               >
-                <span class={tw`sr-only`}>Code</span>
+                <span class={tw`sr-only`}>代码</span>
                 <Icons.Code />
               </a>
             </div>
