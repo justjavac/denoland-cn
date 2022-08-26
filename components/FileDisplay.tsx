@@ -30,64 +30,18 @@ export function FileDisplay(props: {
       >
         <div class={tw`flex items-center gap-2`}>
           <Icons.Source class="text-gray-500" />
-          <span class={tw`text-lg leading-5 font-semibold`}>File</span>
+          <span class={tw`text-lg leading-5 font-semibold`}>文件</span>
         </div>
-<<<<<<< HEAD
-        <div class={tw`inline-flex items-center`}>
-          <div>
-            {props.sourceURL && (
-              <a href={props.sourceURL} class={tw`link ml-4`}>
-                Raw
-              </a>
-            )}
-            {props.repositoryURL &&
-              (
-                <a href={props.repositoryURL} class={tw`link ml-2 sm:ml-4`}>
-                  仓库
-                </a>
-              )}
-          </div>
-          {filetypeIsJS(filetype) &&
-            (
-              <div class={tw`ml-4`}>
-                <a href={doc.href} class={tw`link`}>文档</a>
-              </div>
-            )}
-          {filetype === "markdown" && (
-            <div
-              class={tw`inline-flex ml-4 flex-nowrap shadow-sm rounded-md`}
-            >
-              <a
-                href={preview.href}
-                class={tw`relative inline-flex items-center px-1.5 py-1.5 rounded-l-md border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50 ${
-                  !isRaw ? "bg-white" : "bg-gray-100"
-                }`}
-              >
-                <span class={tw`sr-only`}>预览</span>
-                <Icons.Page />
-              </a>
-              <a
-                href={raw.href}
-                class={tw`-ml-px relative inline-flex items-center px-1.5 py-1.5 rounded-r-md border border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50 ${
-                  isRaw ? "bg-white" : "bg-gray-100"
-                }`}
-              >
-                <span class={tw`sr-only`}>代码</span>
-                <Icons.Code />
-              </a>
-            </div>
-=======
         <div
           class={tw`flex items-center gap-3 children:(border border-dark-border rounded p-2 hover:bg-ultralight)`}
         >
-          <a href={props.repositoryURL} title="Repository URL">
+          <a href={props.repositoryURL} title="GitHub 仓库地址">
             <Icons.GitHub class="h-4 w-4" />
           </a>
           {props.docable && (
-            <a href={doc.href} title="Documentation">
+            <a href={doc.href} title="文档">
               <Icons.Manual class="h-4" />
             </a>
->>>>>>> fb427a1b016504155344ca0fdf62092fbde62b7d
           )}
         </div>
       </div>

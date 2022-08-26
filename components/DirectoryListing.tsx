@@ -29,37 +29,19 @@ export function DirectoryListing(props: {
       <div
         class={tw`py-3 px-5 flex justify-between items-center`}
       >
-<<<<<<< HEAD
-        <div
-          class={tw`bg-gray-100 border-b border-gray-200 flex justify-between px-4 py-2`}
-        >
-          <div class={tw`flex items-center`}>
-            <Icons.Folder />
-            <span class={tw`ml-2 font-medium`}>{props.path || "/"}</span>
-          </div>
-          <div class={tw`inline-flex items-center`}>
-            <a href={props.repositoryURL} class={tw`link ml-4`}>
-              仓库
-            </a>
-            <div class={tw`ml-4`}>
-              <a href={doc.href} class={tw`link`}>文档</a>
-            </div>
-          </div>
-=======
         <div class={tw`flex items-center gap-2`}>
           <Icons.Index class="text-gray-500" />
-          <span class={tw`text-lg leading-5 font-semibold`}>Directory</span>
+          <span class={tw`text-lg leading-5 font-semibold`}>目录</span>
         </div>
         <div
           class={tw`flex items-center gap-3 children:(border border-dark-border rounded p-2 hover:bg-ultralight)`}
         >
-          <a href={props.repositoryURL} title="Repository URL">
+          <a href={props.repositoryURL} title="GitHub 仓库地址">
             <Icons.GitHub class="h-4 w-4" />
           </a>
-          <a href={doc.href} title="Documentation">
+          <a href={doc.href} title="文档">
             <Icons.Manual class="h-4" />
           </a>
->>>>>>> fb427a1b016504155344ca0fdf62092fbde62b7d
         </div>
       </div>
 

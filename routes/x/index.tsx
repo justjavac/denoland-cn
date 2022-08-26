@@ -148,13 +148,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                 <input
                   type="text"
                   name="query"
-<<<<<<< HEAD
-                  placeholder={data?.totalCount
-                    ? `在 ${data.totalCount} 个模块中搜索...`
-                    : "搜索..."}
-=======
-                  placeholder={`Search through ${data.nbHits} modules...`}
->>>>>>> fb427a1b016504155344ca0fdf62092fbde62b7d
+                  placeholder={`在 ${data.nbHits} 个模块中搜索...`}
                   class={tw`w-full bg-transparent text-default placeholder:text-gray-400 outline-none`}
                   value={data.query}
                 />
