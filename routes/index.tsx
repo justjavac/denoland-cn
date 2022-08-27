@@ -39,8 +39,8 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (27ms
 
   return (
     <div>
-      <HelloBar to="https://deno.news/archive/48-announcing-deno-merch">
-        Check out Deno News issue #48!
+      <HelloBar to="https://deno.news/archive/49-big-changes-for-deno-starting-with-v125">
+        Check out Deno News issue #49!
       </HelloBar>
       <Head>
         <title>Deno - 现代的 JavaScript 和 TypeScript 运行时</title>
@@ -408,7 +408,11 @@ function InstallSection({ url }: { url: URL }) {
       <p class={tw`mb-2`}>PowerShell (Windows):</p>
       <CodeBlock
         language="bash"
+<<<<<<< HEAD
         code="irm https://x.deno.js.cn/install.ps1 | iex"
+=======
+        code="irm https://deno.land/install.ps1 | iex"
+>>>>>>> c7e7e0e3fdb7b7506b5d486b2fb74fec702dc491
         url={url}
       />
     </div>

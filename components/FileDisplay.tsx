@@ -35,12 +35,21 @@ export function FileDisplay(props: {
         <div
           class={tw`flex items-center gap-3 children:(border border-dark-border rounded p-2 hover:bg-ultralight)`}
         >
+<<<<<<< HEAD
           <a href={props.repositoryURL} title="GitHub 仓库地址">
             <Icons.GitHub class="h-4 w-4" />
           </a>
           {props.docable && (
             <a href={doc.href} title="文档">
               <Icons.Manual class="h-4" />
+=======
+          <a href={props.repositoryURL} title="Repository URL">
+            <Icons.GitHub class="h-4 w-auto" />
+          </a>
+          {props.docable && (
+            <a href={doc.href} title="Documentation">
+              <Icons.Docs class="h-4 w-auto" />
+>>>>>>> c7e7e0e3fdb7b7506b5d486b2fb74fec702dc491
             </a>
           )}
         </div>
