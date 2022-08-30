@@ -21,6 +21,7 @@ import {
   versions,
 } from "@/util/manual_utils.ts";
 import VersionSelect from "@/islands/VersionSelect.tsx";
+import { type State } from "@/routes/_middleware.ts";
 
 import VERSIONS from "@/versions.json" assert { type: "json" };
 
@@ -28,6 +29,7 @@ interface Data {
   tableOfContents: TableOfContents;
   content: string;
   version: string;
+  userToken: string;
 }
 
 export default function Manual({ params, url, data }: PageProps<Data>) {
@@ -83,7 +85,12 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
         </title>
         <link rel="canonical" href={`https://deno.land/manual${path}`} />
       </Head>
+<<<<<<< HEAD
       <Header selected="手册" manual />
+=======
+      <Header selected="Manual" manual userToken={data.userToken} />
+
+>>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
       <SidePanelPage
         sidepanel={
           <>
@@ -116,7 +123,7 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
 
           <Markdown
             source={data.content
-              .replace(/(\[.+\]\(.+)\.md(\))/g, "$1$2")
+              .replace(/(\[.+\]\((?!https?:).+)\.md(\))/g, "$1$2")
               .replaceAll("$STD_VERSION", stdVersion)
               .replaceAll("$CLI_VERSION", version)}
             baseURL={sourceURL}
@@ -131,7 +138,7 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
                 )}
                 class={tw`font-medium inline-flex items-center px-4.5 py-2.5 rounded-lg border border-dark-border gap-1.5 hover:bg-light-border`}
               >
-                <Icons.ArrowLeft />
+                <Icons.ChevronLeft />
                 <div>
                   {pageList[pageIndex - 1].name}
                 </div>
@@ -148,7 +155,7 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
                 <div>
                   {pageList[pageIndex + 1].name}
                 </div>
-                <Icons.ArrowRight />
+                <Icons.ChevronRight />
               </a>
             )}
           </div>
@@ -227,8 +234,8 @@ function ToC({
                   aria-label={`open section ${entry.name}`}
                   onKeyDown="if (event.code === 'Space' || event.code === 'Enter') { this.parentElement.click(); event.preventDefault(); }"
                   tabindex={0}
-                  class={"cursor-pointer" +
-                    (entry.children ? "" : " invisible")}
+                  class={"h-2.5 w-auto cursor-pointer " +
+                    (entry.children ? "" : "invisible")}
                 />
                 <a href={`/manual@${version}/${slug}`}>
                   {entry.name}
@@ -268,8 +275,8 @@ function ToC({
   );
 }
 
-export const handler: Handlers<Data> = {
-  async GET(req, { params, render }) {
+export const handler: Handlers<Data, State> = {
+  async GET(req, { params, render, state: { userToken } }) {
     const url = new URL(req.url);
     const { version, path } = params;
     if (!version || !path) {
@@ -302,7 +309,7 @@ export const handler: Handlers<Data> = {
         }),
     ]);
 
-    return render!({ tableOfContents, content, version });
+    return render!({ tableOfContents, content, version, userToken });
   },
 };
 

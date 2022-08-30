@@ -32,6 +32,7 @@ export function FileDisplay(props: {
           <Icons.Source class="text-gray-500" />
           <span class={tw`text-lg leading-5 font-semibold`}>文件</span>
         </div>
+<<<<<<< HEAD
         <div
           class={tw`flex items-center gap-3 children:(border border-dark-border rounded p-2 hover:bg-ultralight)`}
         >
@@ -41,6 +42,19 @@ export function FileDisplay(props: {
           {props.docable && (
             <a href={doc.href} title="文档">
               <Icons.Manual class="h-4" />
+=======
+        <div class={tw`flex items-center gap-3`}>
+          <a
+            href={props.repositoryURL}
+            title="Repository URL"
+            class={tw`icon-button`}
+          >
+            <Icons.GitHub class="h-4 w-auto" />
+          </a>
+          {props.docable && (
+            <a href={doc.href} title="Documentation" class={tw`icon-button`}>
+              <Icons.Docs class="h-4 w-auto" />
+>>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
             </a>
           )}
         </div>

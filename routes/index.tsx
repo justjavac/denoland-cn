@@ -12,10 +12,12 @@ import { Header } from "@/components/Header.tsx";
 import HelloBar from "@/islands/HelloBar.tsx";
 import { Background } from "@/components/HeroBackground.tsx";
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { type State } from "@/routes/_middleware.ts";
 
 import versions from "@/versions.json" assert { type: "json" };
 
 interface Data {
+  userToken: string;
   isFirefox: boolean;
 }
 
@@ -39,8 +41,8 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (27ms
 
   return (
     <div>
-      <HelloBar to="https://deno.news/archive/48-announcing-deno-merch">
-        Check out Deno News issue #48!
+      <HelloBar to="https://deno.news/archive/49-big-changes-for-deno-starting-with-v125">
+        Check out Deno News issue #49!
       </HelloBar>
       <Head>
         <title>Deno - 现代的 JavaScript 和 TypeScript 运行时</title>
@@ -50,7 +52,7 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (27ms
           class={tw`bg-gray-50 overflow-x-hidden border-b border-gray-200 relative`}
         >
           {!data.isFirefox && <Background />}
-          <Header main />
+          <Header main userToken={data.userToken} />
           <div
             class={tw`relative section-x-inset-sm pt-12 pb-20 flex flex-col items-center`}
           >
@@ -408,7 +410,11 @@ function InstallSection({ url }: { url: URL }) {
       <p class={tw`mb-2`}>PowerShell (Windows):</p>
       <CodeBlock
         language="bash"
+<<<<<<< HEAD
         code="irm https://x.deno.js.cn/install.ps1 | iex"
+=======
+        code="irm https://deno.land/install.ps1 | iex"
+>>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
         url={url}
       />
     </div>
@@ -437,9 +443,10 @@ function InstallSection({ url }: { url: URL }) {
   );
 }
 
-export const handler: Handlers<Data> = {
-  GET(req, { render }) {
+export const handler: Handlers<Data, State> = {
+  GET(req, { render, state: { userToken } }) {
     return render!({
+      userToken,
       isFirefox:
         req.headers.get("user-agent")?.toLowerCase().includes("firefox") ??
           false,
