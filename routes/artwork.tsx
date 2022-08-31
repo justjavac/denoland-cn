@@ -8,6 +8,8 @@ import { tw } from "@twind";
 import { Footer } from "@/components/Footer.tsx";
 import { Header } from "@/components/Header.tsx";
 import * as Icons from "@/components/Icons.tsx";
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { type State } from "@/routes/_middleware.ts";
 
 import artworks from "@/data/artwork.json" assert { type: "json" };
 
@@ -32,13 +34,17 @@ interface Artist {
   web?: string;
 }
 
-export default function ArtworkPage() {
+interface Data {
+  userToken: string;
+}
+
+export default function ArtworkPage({ data: { userToken } }: PageProps<Data>) {
   return (
     <>
       <Head>
         <title>Artwork | Deno</title>
       </Head>
-      <Header />
+      <Header userToken={userToken} />
       <div class={tw`section-x-inset-xl mt-8 mb-24`}>
         <div class={tw`max-w-screen-lg mx-auto`}>
           <h4 class={tw`text-4xl font-bold tracking-tight`}>Artwork</h4>
@@ -104,39 +110,29 @@ function Item({ artwork }: { artwork: Artwork }) {
             </span>
           </div>
         </div>
-        <div class={tw`flex justify-start items-center ml-4`}>
+        <div
+          class={tw`flex justify-start items-center ml-4 gap-2 children:children:(text-gray-500 hover:text-gray-700 h-5 w-auto)`}
+        >
           {artwork.artist.web && (
-            <a
-              href={artwork.artist.web}
-              class={tw`ml-2 text-gray-500 hover:text-gray-700`}
-            >
+            <a href={artwork.artist.web}>
               <span class={tw`sr-only`}>Website</span>
               <Icons.Globe />
             </a>
           )}
           {artwork.artist.twitter && (
-            <a
-              href={`https://twitter.com/${artwork.artist.twitter}`}
-              class={tw`ml-2 text-gray-500 hover:text-gray-700`}
-            >
+            <a href={`https://twitter.com/${artwork.artist.twitter}`}>
               <span class={tw`sr-only`}>Twitter</span>
               <Icons.Twitter />
             </a>
           )}
           {artwork.artist.github && (
-            <a
-              href={`https://github.com/${artwork.artist.github}`}
-              class={tw`ml-2 text-gray-500 hover:text-gray-700`}
-            >
+            <a href={`https://github.com/${artwork.artist.github}`}>
               <span class={tw`sr-only`}>GitHub</span>
               <Icons.GitHub />
             </a>
           )}
           {artwork.artist.instagram && (
-            <a
-              href={`https://www.instagram.com/${artwork.artist.instagram}`}
-              class={tw`ml-2 text-gray-500 hover:text-gray-700`}
-            >
+            <a href={`https://www.instagram.com/${artwork.artist.instagram}`}>
               <span class={tw`sr-only`}>Instagram</span>
               <Icons.Instagram />
             </a>
@@ -146,3 +142,9 @@ function Item({ artwork }: { artwork: Artwork }) {
     </div>
   );
 }
+
+export const handler: Handlers<Data, State> = {
+  GET(_, { render, state: { userToken } }) {
+    return render!({ userToken });
+  },
+};

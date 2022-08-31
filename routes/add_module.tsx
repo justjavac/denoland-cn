@@ -9,15 +9,23 @@ import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import AddModule from "@/islands/AddModule.tsx";
 import * as Icons from "@/components/Icons.tsx";
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { type State } from "@/routes/_middleware.ts";
 
-export default function AddModulePage() {
+interface Data {
+  userToken: string;
+}
+
+export default function AddModulePage(
+  { data: { userToken } }: PageProps<Data>,
+) {
   return (
     <>
       <Head>
         <title>第三方模块 | Deno</title>
       </Head>
       <div>
-        <Header selected="第三方模块" />
+        <Header selected="第三方模块" userToken={userToken} />
         <div
           class={tw`section-x-inset-xl mt-16 mb-28 flex items-center flex-col gap-12 lg:(items-start flex-row gap-36)`}
         >
@@ -43,12 +51,9 @@ export default function AddModulePage() {
                 For this purpose we use GitHub webhooks.
               </p>
             </div>
-            <a
-              href="/x"
-              class={tw`inline-flex rounded-md bg-light-border py-3 px-4 items-center`}
-            >
-              <Icons.ArrowLeft />
-              <span class={tw`ml-1.5`}>Browse Modules</span>
+            <a href="/x" class={tw`button-alternate`}>
+              <Icons.ChevronLeft />
+              <span>Browse Modules</span>
             </a>
           </div>
           <AddModule />
@@ -58,3 +63,9 @@ export default function AddModulePage() {
     </>
   );
 }
+
+export const handler: Handlers<Data, State> = {
+  GET(_, { render, state: { userToken } }) {
+    return render!({ userToken });
+  },
+};

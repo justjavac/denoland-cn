@@ -18,6 +18,7 @@ import { Footer } from "@/components/Footer.tsx";
 import { InlineCode } from "@/components/InlineCode.tsx";
 import * as Icons from "@/components/Icons.tsx";
 import { PopularityTag } from "@/components/PopularityTag.tsx";
+import { type State } from "@/routes/_middleware.ts";
 
 const requester = createFetchRequester();
 const client = algoliasearch(
@@ -28,17 +29,20 @@ const client = algoliasearch(
 const index = client.initIndex("modules");
 
 export interface Data {
-  hits: Array<{
-    popularity_score: number;
-    description?: string;
-    name: string;
-    popularity_tag?: PopularityModuleTag["value"];
-  }>;
-  nbHits: number;
-  page: number;
-  nbPages: number;
-  query: string;
-  hitsPerPage: number;
+  userToken: string;
+  search: {
+    hits: Array<{
+      popularity_score: number;
+      description?: string;
+      name: string;
+      popularity_tag?: PopularityModuleTag["value"];
+    }>;
+    nbHits: number;
+    page: number;
+    nbPages: number;
+    query: string;
+    hitsPerPage: number;
+  };
 }
 
 export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
@@ -48,8 +52,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
         <title>第三方模块 | Deno</title>
       </Head>
       <div>
-        <Header selected="第三方模块" />
-
+        <Header selected="第三方模块" userToken={data.userToken} />
         <img
           src="/images/module_banner.png"
           alt="Deno in Space"
@@ -106,18 +109,11 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
               </div>
 
               <div class={tw`space-x-2`}>
-                <a
-                  href="/add_module"
-                  class={tw`rounded-md px-4.5 py-2.5 inline-flex items-center gap-1.5 leading-none font-medium text-white bg-tag-blue hover:bg-[#3587EF]`}
-                >
+                <a href="/add_module" class={tw`button-primary`}>
                   <Icons.Plus />
-                  <div>发布模块</div>
+                  <span>发布模块</span>
                 </a>
-
-                <a
-                  href="#Q&A"
-                  class={tw`px-4.5 py-2.5 rounded-md font-medium leading-none bg-[#F3F3F3] hover:bg-dark-border`}
-                >
+                <a href="#Q&A" class={tw`button-alternate`}>
                   了解更多
                 </a>
               </div>
@@ -148,17 +144,17 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                 <input
                   type="text"
                   name="query"
-                  placeholder={`在 ${data.nbHits} 个模块中搜索...`}
+                  placeholder={`在 ${data.search.nbHits} 个模块中搜索...`}
                   class={tw`w-full bg-transparent text-default placeholder:text-gray-400 outline-none`}
-                  value={data.query}
+                  value={data.search.query}
                 />
                 <Icons.MagnifyingGlass />
               </label>
             </form>
 
             <ul class={tw`divide-y`}>
-              {data.hits.length
-                ? data.hits.map((result) => (
+              {data.search.hits.length
+                ? data.search.hits.map((result) => (
                   <li class={tw`border-dark-border`}>
                     <a
                       href={"/x/" + result.name}
@@ -183,7 +179,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                         {result.popularity_tag && (
                           <PopularityTag>{result.popularity_tag}</PopularityTag>
                         )}
-                        <Icons.ArrowRight class="text-gray-400" />
+                        <Icons.ChevronRight class="text-gray-400" />
                       </div>
                     </a>
                   </li>
@@ -207,7 +203,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
             <div
               class={tw`px-5 py-4 border-t border-dark-border bg-ultralight flex items-center justify-between`}
             >
-              {!!data.hits.length && <Pagination {...data} />}
+              {!!data.search.hits.length && <Pagination {...data} />}
             </div>
           </div>
 
@@ -280,10 +276,10 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
               </h2>
               <a
                 href="https://github.com/denoland/wanted_modules/issues"
-                class={tw`rounded-md leading-none font-medium bg-tag-blue px-4.5 py-2.5 inline-flex items-center text-white gap-1.5 hover:bg-[#3587EF]`}
+                class={tw`button-primary`}
               >
-                <div>Open an issue here</div>
-                <Icons.ArrowRight />
+                <span>Open an issue here</span>
+                <Icons.ChevronRight />
               </a>
             </div>
           </div>
@@ -296,7 +292,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
 }
 
 export function Pagination(
-  { query, page, hitsPerPage, hits, nbHits, nbPages }: Data,
+  { search: { query, page, hitsPerPage, hits, nbHits, nbPages } }: Data,
 ) {
   function toPage(n: number): string {
     const params = new URLSearchParams();
@@ -313,14 +309,14 @@ export function Pagination(
         class={tw`p-3.5 rounded-lg border border-dark-border px-2.5 py-1.5 flex items-center gap-2.5 bg-white`}
       >
         <MaybeA disabled={page === 0} href={toPage(page - 1)}>
-          <Icons.ArrowLeft />
+          <Icons.ChevronLeft />
         </MaybeA>
         <div class={tw`leading-none`}>
           Page <span class={tw`font-medium`}>{page + 1}</span> of{" "}
           <span class={tw`font-medium`}>{nbPages}</span>
         </div>
         <MaybeA disabled={(page + 1) >= nbPages} href={toPage(page + 1)}>
-          <Icons.ArrowRight />
+          <Icons.ChevronRight />
         </MaybeA>
       </div>
 
@@ -354,16 +350,19 @@ function MaybeA(
   }
 }
 
-export const handler: Handlers<Data> = {
-  async GET(req, { render }) {
+export const handler: Handlers<Data, State> = {
+  async GET(req, { render, state: { userToken } }) {
     const url = new URL(req.url);
     const page = parseInt(url.searchParams.get("page") || "1") - 1;
     const query = url.searchParams.get("query") || "";
-    const res: Data = await index.search(query, {
-      page,
-      hitsPerPage: 20,
-      filters: "third_party:true",
-    });
+    const res: Data = {
+      userToken,
+      search: await index.search(query, {
+        page,
+        hitsPerPage: 20,
+        filters: "third_party:true",
+      }),
+    };
 
     return render!(res);
   },

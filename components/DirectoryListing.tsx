@@ -26,21 +26,21 @@ export function DirectoryListing(props: {
 
   return (
     <div class={tw`border border-gray-200 rounded-lg`}>
-      <div
-        class={tw`py-3 px-5 flex justify-between items-center`}
-      >
+      <div class={tw`py-3 px-5 flex justify-between items-center`}>
         <div class={tw`flex items-center gap-2`}>
-          <Icons.Index class="text-gray-500" />
+          <Icons.Index class="h-4 w-auto text-gray-500" />
           <span class={tw`text-lg leading-5 font-semibold`}>目录</span>
         </div>
-        <div
-          class={tw`flex items-center gap-3 children:(border border-dark-border rounded p-2 hover:bg-ultralight)`}
-        >
-          <a href={props.repositoryURL} title="GitHub 仓库地址">
-            <Icons.GitHub class="h-4 w-4" />
+        <div class={tw`flex items-center gap-3`}>
+          <a
+            href={props.repositoryURL}
+            title="Repository URL"
+            class={tw`icon-button`}
+          >
+            <Icons.GitHub class="h-4 w-auto" />
           </a>
-          <a href={doc.href} title="文档">
-            <Icons.Manual class="h-4" />
+          <a href={doc.href} title="Documentation" class={tw`icon-button`}>
+            <Icons.Docs class="h-4 w-auto" />
           </a>
         </div>
       </div>

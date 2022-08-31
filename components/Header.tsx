@@ -1,8 +1,7 @@
 // Copyright 2022 the Deno authors. All rights reserved. MIT license.
 
 /** @jsx h */
-/** @jsxFrag Fragment */
-import { Fragment, h } from "preact";
+import { h } from "preact";
 
 import { apply, css, tw } from "@twind";
 import * as Icons from "./Icons.tsx";
@@ -18,14 +17,18 @@ const entries = [
   { href: "/x", content: "第三方模块" },
 ] as const;
 
+type ContentTypes = (typeof entries)[number]["content"];
+
 export function Header({
   selected,
   main,
   manual,
+  userToken,
 }: {
-  selected?: (typeof entries)[number]["content"];
+  selected?: ContentTypes;
   main?: boolean;
   manual?: boolean;
+  userToken: string;
 }) {
   return (
     <div
@@ -62,7 +65,7 @@ export function Header({
               <img class={tw`h-full w-full`} src="/logo.svg" alt="Deno Logo" />
             </a>
 
-            <GlobalSearch />
+            <GlobalSearch userToken={userToken} />
 
             <label
               tabIndex={0}
@@ -83,28 +86,26 @@ export function Header({
           <div
             class={tw`hidden flex-col mx-2 mt-5 gap-y-4 lg:(flex flex-row items-center mx-0 mt-0) font-medium`}
           >
-            {entries.map(({ href, content }) => {
-              return (
-                <a
-                  href={href}
-                  class={tw`lg:ml-4 px-2 rounded-md leading-loose hover:(bg-gray-100 text-main) ${apply`${
-                    content === selected
-                      ? css({
-                        "text-decoration-line": "underline",
-                        "text-underline-offset": "6px",
-                        "text-decoration-thickness": "2px",
-                      })
-                      : ""
-                  } ${content === selected ? "text-black" : "text-gray-500"}`}`}
-                >
-                  {content}
-                </a>
-              );
-            })}
+            {entries.map(({ href, content }) => (
+              <a
+                href={href}
+                class={tw`lg:ml-4 px-2 rounded-md leading-loose hover:(bg-gray-100 text-main) ${apply`${
+                  content === selected
+                    ? css({
+                      "text-decoration-line": "underline",
+                      "text-underline-offset": "6px",
+                      "text-decoration-thickness": "2px",
+                    })
+                    : ""
+                } ${content === selected ? "text-black" : "text-gray-500"}`}`}
+              >
+                {content}
+              </a>
+            ))}
 
             <a
               href="https://deno.com/deploy"
-              class={tw`h-9 lg:ml-5 bg-secondary rounded-md px-4 flex items-center hover:bg-[#D5D7DB]`}
+              class={tw`button-outline lg:ml-5`}
             >
               Deploy
             </a>
@@ -114,14 +115,14 @@ export function Header({
               class={tw`lg:ml-5 my-auto hidden lg:block`}
             >
               <span class={tw`sr-only`}>GitHub</span>
-              <Icons.GitHub class="inline text-main hover:text-default-highlight" />
+              <Icons.GitHub class="h-5 w-auto text-main hover:text-default-highlight" />
             </a>
             <a
               href="https://discord.gg/deno"
               class={tw`lg:ml-5 my-auto hidden lg:block`}
             >
               <span class={tw`sr-only`}>Discord</span>
-              <Icons.Discord class="inline text-main hover:text-default-highlight" />
+              <Icons.Discord class="h-5 w-auto text-main hover:text-default-highlight" />
             </a>
           </div>
         </nav>

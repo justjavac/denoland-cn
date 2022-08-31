@@ -36,6 +36,7 @@ import { SourceView } from "@/components/SourceView.tsx";
 import { PopularityTag } from "@/components/PopularityTag.tsx";
 import { SidePanelPage } from "@/components/SidePanelPage.tsx";
 import { Markdown } from "@/components/Markdown.tsx";
+import { type State } from "@/routes/_middleware.ts";
 
 type Views = "doc" | "source" | "info";
 type Params = {
@@ -52,8 +53,13 @@ type MaybeData =
   | Data
   | null;
 
-export const handler: Handlers<MaybeData> = {
-  async GET(req, { params, render }) {
+interface PageData {
+  data: MaybeData;
+  userToken: string;
+}
+
+export const handler: Handlers<PageData, State> = {
+  async GET(req, { params, render, state: { userToken } }) {
     const { name, version, path } = params as Params;
     const url = new URL(req.url);
 
@@ -93,7 +99,7 @@ export const handler: Handlers<MaybeData> = {
       redirect: "manual",
     });
     if (res.status === 404) { // module doesnt exist
-      return render(null);
+      return render({ data: null, userToken });
     } else if (res.status === 302) { // implicit latest
       const latestVersion = res.headers.get("X-Deno-Latest-Version")!;
       console.log(getModulePath(
@@ -128,7 +134,7 @@ export const handler: Handlers<MaybeData> = {
     }
 
     if (data.data.kind === "no-versions") {
-      return render!(data);
+      return render!({ data, userToken });
     }
 
     if (data.view === "doc" && data.data.kind === "file") {
@@ -150,7 +156,7 @@ export const handler: Handlers<MaybeData> = {
       data.data.file = await getRawFile(name, version, path ? `/${path}` : "");
     }
 
-    return render!(data);
+    return render!({ data, userToken });
   },
 };
 
@@ -192,7 +198,9 @@ async function handlerRaw(
   return fetchSource(name, version, path);
 }
 
-export default function Registry({ params, url, data }: PageProps<MaybeData>) {
+export default function Registry(
+  { params, url, data: { data, userToken } }: PageProps<PageData>,
+) {
   let {
     name,
     version,
@@ -211,6 +219,7 @@ export default function Registry({ params, url, data }: PageProps<MaybeData>) {
       <div class={tw`bg-primary min-h-full`}>
         <Header
           selected={name === "std" ? "标准库" : "第三方模块"}
+          userToken={userToken}
         />
         {data === null
           ? (
@@ -293,7 +302,7 @@ function TopPanel({
                 class={tw`flex flex-row justify-between md:justify-center items-center gap-4 border border-dark-border rounded-md bg-white py-2 px-5`}
               >
                 <div class={tw`flex items-center whitespace-nowrap gap-2`}>
-                  <Icons.GitHub class="w-5 h-5 inline text-gray-700" />
+                  <Icons.GitHub class="h-4 w-auto text-gray-700 flex-none" />
                   <a
                     class={tw`link`}
                     href={`https://github.com/${data.upload_options.repository}`}
@@ -312,6 +321,7 @@ function TopPanel({
                 selectedVersion={version}
                 name={name}
                 path={path}
+                view={view}
               />
             )}
           </div>
@@ -454,25 +464,32 @@ function VersionSelector({
   selectedVersion,
   name,
   path,
+  view,
 }: {
   versions: string[];
   selectedVersion: string;
   name: string;
   path: string;
+  view: Views;
 }) {
+  const searchParam = view === "source"
+    ? "?source"
+    : (path === "" ? "?doc" : "");
   return (
     <>
       <VersionSelect
         versions={Object.fromEntries(
-          versions.map((ver) => [ver, getModulePath(name, ver, path)]),
+          versions.map((
+            ver,
+          ) => [ver, getModulePath(name, ver, path) + searchParam]),
         )}
         selectedVersion={selectedVersion}
       />
       {versions[0] !== selectedVersion && (
         <a
-          class={tw`py-2.5 px-4.5 text-white bg-tag-blue hover:bg-blue-500 rounded-md leading-none`}
+          class={tw`button-primary`}
           aria-label="Go to latest version"
-          href={getModulePath(name, versions[0], path)}
+          href={getModulePath(name, versions[0], path) + searchParam}
         >
           Go to Latest
         </a>
@@ -502,7 +519,7 @@ function InfoView(
   if (data.upload_options.repository.split("/")[0] == "denoland") {
     attributes.push(
       <div class={tw`flex items-center gap-1.5`}>
-        <Icons.CheckmarkVerified />
+        <Icons.CheckmarkVerified class="h-4 w-auto" />
         <span class={tw`text-tag-blue font-medium leading-none`}>
           By Deno Team
         </span>
@@ -551,7 +568,7 @@ function InfoView(
               class={tw`space-y-3 children:(flex items-center gap-1.5 leading-none font-medium)`}
             >
               <span>
-                <Icons.Manual />
+                <Icons.Docs />
                 <a
                   href={getModulePath(name, version) + "?doc"}
                   class={tw`link`}
@@ -585,7 +602,7 @@ function InfoView(
               Repository
             </div>
             <div class={tw`flex items-center gap-1.5 whitespace-nowrap`}>
-              <Icons.GitHub class="w-5 h-5 text-gray-700 flex-none" />
+              <Icons.GitHub class="h-4 w-auto text-gray-700 flex-none" />
               <a
                 class={tw`link truncate`}
                 href={`https://github.com/${data.upload_options.repository}`}
