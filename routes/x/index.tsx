@@ -52,12 +52,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
         <title>第三方模块 | Deno</title>
       </Head>
       <div>
-<<<<<<< HEAD
-        <Header selected="第三方模块" />
-=======
-        <Header selected="Third Party Modules" userToken={data.userToken} />
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
-
+        <Header selected="第三方模块" userToken={data.userToken} />
         <img
           src="/images/module_banner.png"
           alt="Deno in Space"
@@ -116,22 +111,10 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
               <div class={tw`space-x-2`}>
                 <a href="/add_module" class={tw`button-primary`}>
                   <Icons.Plus />
-<<<<<<< HEAD
-                  <div>发布模块</div>
+                  <span>发布模块</span>
                 </a>
-
-                <a
-                  href="#Q&A"
-                  class={tw`px-4.5 py-2.5 rounded-md font-medium leading-none bg-[#F3F3F3] hover:bg-dark-border`}
-                >
-                  了解更多
-=======
-                  <span>Publish a module</span>
-                </a>
-
                 <a href="#Q&A" class={tw`button-alternate`}>
-                  Learn more
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
+                  了解更多
                 </a>
               </div>
             </div>
@@ -161,11 +144,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                 <input
                   type="text"
                   name="query"
-<<<<<<< HEAD
-                  placeholder={`在 ${data.nbHits} 个模块中搜索...`}
-=======
-                  placeholder={`Search through ${data.search.nbHits} modules...`}
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
+                  placeholder={`在 ${data.search.nbHits} 个模块中搜索...`}
                   class={tw`w-full bg-transparent text-default placeholder:text-gray-400 outline-none`}
                   value={data.search.query}
                 />

@@ -97,19 +97,8 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
   const [showModal, setShowModal] = useState(false);
   const [input, setInput] = useState("");
 
-<<<<<<< HEAD
-  const [results, setResults] = useState<
-    {
-      manual?: Array<ManualSearchResult>;
-      modules?: Array<ModuleSearchResult>;
-      symbols?: Array<DocNode>;
-    } | null
-  >(null);
-  const [kind, setKind] = useState<typeof kinds[number]>("全部");
-=======
   const [results, setResults] = useState<Results | null>(null);
-  const [kind, setKind] = useState<SearchKinds>("All");
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
+  const [kind, setKind] = useState<SearchKinds>("全部");
   const [page, setPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [symbolKindsToggle, setSymbolKindsToggle] = useState<
@@ -163,15 +152,9 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
         query: input || "Introduction",
         params: {
           page: page,
-<<<<<<< HEAD
           hitsPerPage: kind === "全部" ? 5 : 10,
-          attributesToRetrieve: ["anchor", "url", "content", "hierarchy"],
-          filters: "type:content",
-=======
-          hitsPerPage: kind === "All" ? 5 : 10,
           clickAnalytics: true,
           filters: "kind:paragraph",
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
         },
       });
     }
@@ -182,12 +165,8 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
         query: input || "serve",
         params: {
           page: page,
-<<<<<<< HEAD
           hitsPerPage: kind === "全部" ? 5 : 10,
-=======
-          hitsPerPage: kind === "All" ? 5 : 10,
           clickAnalytics: true,
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
           filters: Object.entries(symbolKindsToggle)
             .filter(([_, v]) => kind === "Symbols" ? v : true)
             .map(([k]) => "kind:" + symbolKinds[k as keyof typeof symbolKinds])
@@ -202,12 +181,8 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
         query: input,
         params: {
           page: page,
-<<<<<<< HEAD
           hitsPerPage: kind === "全部" ? 5 : 10,
-=======
-          hitsPerPage: kind === "All" ? 5 : 10,
           clickAnalytics: true,
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
         },
       });
     }
@@ -321,13 +296,8 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
                 ? (
                   <>
                     {results.manual && (
-<<<<<<< HEAD
                       <Section title="Manual" isAll={kind === "全部"}>
-                        {results.manual && results.manual.length === 0 && (
-=======
-                      <Section title="Manual" isAll={kind === "All"}>
                         {results.manual && results.manual.hits.length === 0 && (
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
                           <div class={tw`text-gray-500 italic`}>
                             Your search did not yield any results in the manual.
                           </div>
@@ -343,18 +313,7 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
                       </Section>
                     )}
                     {results.modules && (
-<<<<<<< HEAD
                       <Section title="Modules" isAll={kind === "全部"}>
-                        {results.modules && results.modules.length === 0 && (
-                          <div class={tw`text-gray-500 italic`}>
-                            Your search did not yield any results in the modules
-                            index.
-                          </div>
-                        )}
-                        {results.modules.map((module) => (
-                          <ModuleResult module={module} />
-=======
-                      <Section title="Modules" isAll={kind === "All"}>
                         {results.modules && results.modules.hits.length === 0 &&
                           (
                             <div class={tw`text-gray-500 italic`}>
@@ -369,23 +328,11 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
                             queryID={results.modules!.queryID}
                             position={getPosition(results.modules!, i)}
                           />
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
                         ))}
                       </Section>
                     )}
                     {results.symbols && (
-<<<<<<< HEAD
                       <Section title="Symbols" isAll={kind === "全部"}>
-                        {results.symbols && results.symbols.length === 0 && (
-                          <div class={tw`text-gray-500 italic`}>
-                            Your search did not yield any results in the symbol
-                            index.
-                          </div>
-                        )}
-                        {results.symbols.map((doc) => (
-                          <SymbolResult doc={doc} />
-=======
-                      <Section title="Symbols" isAll={kind === "All"}>
                         {results.symbols && results.symbols.hits.length === 0 &&
                           (
                             <div class={tw`text-gray-500 italic`}>
@@ -400,7 +347,6 @@ export default function GlobalSearch({ userToken }: { userToken?: string }) {
                             queryID={results.symbols!.queryID}
                             position={getPosition(results.symbols!, i)}
                           />
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
                         ))}
                       </Section>
                     )}

@@ -218,12 +218,8 @@ export default function Registry(
       </Head>
       <div class={tw`bg-primary min-h-full`}>
         <Header
-<<<<<<< HEAD
           selected={name === "std" ? "标准库" : "第三方模块"}
-=======
-          selected={name === "std" ? "Standard Library" : "Third Party Modules"}
           userToken={userToken}
->>>>>>> b089c6c52eb85cbba51b41f28132bdc8ec00ad09
         />
         {data === null
           ? (
