@@ -28,6 +28,13 @@ Deno.test("get introduction file new repo", () => {
   );
 });
 
+Deno.test("get edit link old repo", () => {
+  assertEquals(
+    getDocURL("v1.12.0", "/introduction"),
+    "https://github.com/denocn/deno_docs/blob/master/introduction.md",
+  );
+});
+
 Deno.test("get edit link new repo", () => {
   assertEquals(
     getDocURL("v1.12.1", "/introduction"),
