@@ -11,6 +11,12 @@ Deno 中文网站的源码。
 
 ## 图片的许可协议
 
+<<<<<<< HEAD
 Deno 的图片基于 MIT 许可协议发布（发布到公共领域，可免费使用）。
+=======
+For questions or problems regarding modules, please e-mail modules@deno.com.
+
+## Image License
+>>>>>>> a2cb9be6e98450c6f943728723f2bfbd945bd1e0
 
 - [在 V1 Blog 中用到的图片，由 @hashrock 创作](https://deno.land/v1.jpg)
