@@ -158,13 +158,28 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                   <li class={tw`border-border`}>
                     <a
                       href={"/x/" + result.name}
-                      class={tw`flex items-center justify-between px-5 py-3 gap-6 hover:bg-ultralight`}
+                      class={tw`flex items-center px-5 py-3 gap-2 hover:bg-ultralight`}
                     >
-                      <div>
+                      <div
+                        class={tw`grid w-full ${
+                          css({
+                            "grid-template-columns": "auto min-content",
+                          })
+                        } gap-x-6`}
+                      >
                         <div class={tw`text-tag-blue font-semibold`}>
                           {result.name}
                         </div>
-                        <div class={tw`text-gray-400`}>
+                        <div
+                          class={tw`self-center justify-self-end md:row-span-2`}
+                        >
+                          {result.popularity_tag && (
+                            <PopularityTag class="hidden md:block">
+                              {result.popularity_tag}
+                            </PopularityTag>
+                          )}
+                        </div>
+                        <div class={tw`col-span-2 md:col-span-1 text-gray-400`}>
                           {result.description
                             ? emojify(result.description)
                             : (
@@ -175,12 +190,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                         </div>
                       </div>
 
-                      <div class={tw`flex items-center gap-2`}>
-                        {result.popularity_tag && (
-                          <PopularityTag>{result.popularity_tag}</PopularityTag>
-                        )}
-                        <Icons.ChevronRight class="text-gray-400" />
-                      </div>
+                      <Icons.ChevronRight class="text-gray-400 flex-shrink-0" />
                     </a>
                   </li>
                 ))
@@ -267,6 +277,20 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                 breaking programs that rely on this module. Modules may be
                 removed if there is a legal reason to do (for example copyright
                 infringement).
+              </p>
+            </div>
+
+            <div class={tw`space-y-3`}>
+              <h2 class={tw`text-xl leading-6 font-semibold`}>
+                A module is name-squatting or its just made as a joke, can I
+                have it?
+              </h2>
+              <p class={tw`text-[#6C6E78] leading-5`}>
+                Name squatting is not allowed on the deno.land/x/. If you feel
+                that a module is not currently usable, has not been legitimately
+                under development for more than 90 days, and you have a concrete
+                proposal to publish a well-maintained module in its place,
+                please contact support.
               </p>
             </div>
 
