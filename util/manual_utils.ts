@@ -46,8 +46,8 @@ export function getFileURL(version: string, path: string): string {
   return `${githubBasepath}${version}${path}.md`;
 }
 
-export function getDocURL(version: string, path: string): string {
-  return `${sourcepath}${version}${path}.md`;
+export function getDocURL(_version: string, path: string): string {
+  return `${sourcepath}master${path}.md`;
 }
 
 export function isPreviewVersion(version: string): boolean {
