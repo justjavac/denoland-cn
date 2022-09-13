@@ -1,21 +1,11 @@
 // Copyright 2022 the Deno authors. All rights reserved. MIT license.
 
-<<<<<<< HEAD
-import { getSourceURL } from "./registry_utils.ts";
-import VERSIONS from "@/versions.json" assert { type: "json" };
-
-const githubBasepath = "https://cdn.jsdelivr.net/gh/denocn/deno_docs@";
-const docpath = "https://github.com/denocn/deno_docs/blob/";
-=======
-import compareVersions from "$tiny-version-compare";
 import { join } from "$std/path/mod.ts";
 import { getSourceURL } from "./registry_utils.ts";
 import VERSIONS from "@/versions.json" assert { type: "json" };
 
-const githubBasepath = "https://raw.githubusercontent.com/denoland/manual/";
-const oldSourcepath = "https://github.com/denoland/deno/blob/";
-const sourcepath = "https://github.com/denoland/manual/blob/";
->>>>>>> 59de535e2a62ec652b6ad5c91cd9847874b026d1
+const githubBasepath = "https://cdn.jsdelivr.net/gh/denocn/deno_docs@";
+const sourcepath = "https://github.com/denocn/deno_docs/blob/";
 
 export const versions = VERSIONS.cli;
 
@@ -57,16 +47,7 @@ export function getFileURL(version: string, path: string): string {
 }
 
 export function getDocURL(version: string, path: string): string {
-<<<<<<< HEAD
-  version = "master";
-  return `${docpath}${version}${path}.md`;
-=======
-  if (isOldVersion(version)) {
-    return `${oldSourcepath}${version}/docs${path}.md`;
-  }
-
   return `${sourcepath}${version}${path}.md`;
->>>>>>> 59de535e2a62ec652b6ad5c91cd9847874b026d1
 }
 
 export function isPreviewVersion(version: string): boolean {
