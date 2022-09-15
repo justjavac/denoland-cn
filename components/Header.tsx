@@ -8,6 +8,7 @@ import * as Icons from "./Icons.tsx";
 import GlobalSearch from "@/islands/GlobalSearch.tsx";
 
 const entries = [
+<<<<<<< HEAD
   { href: "/manual", content: "手册" },
   {
     href: "https://doc.deno.land/deno/stable",
@@ -15,6 +16,12 @@ const entries = [
   },
   { href: "/std", content: "标准库" },
   { href: "/x", content: "第三方模块" },
+=======
+  { href: "/manual", content: "Manual" },
+  { href: "/api", content: "API" },
+  { href: "/std", content: "Standard Library" },
+  { href: "/x", content: "Third Party Modules" },
+>>>>>>> 47384c7940c6360e9033a760cfdce7c5ff7a27c1
 ] as const;
 
 type ContentTypes = (typeof entries)[number]["content"];
