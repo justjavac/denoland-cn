@@ -112,12 +112,8 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
         <title>第三方模块 | Deno</title>
       </Head>
       <div>
-<<<<<<< HEAD
-        <Header selected="第三方模块" userToken={data.userToken} />
-=======
-        <Header selected="Third Party Modules" />
+        <Header selected="第三方模块" />
 
->>>>>>> ce78d35542758097e9dfb9ae76db565d319642bb
         <img
           src="/images/module_banner.png"
           alt="Deno in Space"

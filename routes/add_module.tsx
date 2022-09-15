@@ -17,11 +17,7 @@ export default function AddModulePage() {
         <title>第三方模块 | Deno</title>
       </Head>
       <div>
-<<<<<<< HEAD
-        <Header selected="第三方模块" userToken={userToken} />
-=======
-        <Header selected="Third Party Modules" />
->>>>>>> ce78d35542758097e9dfb9ae76db565d319642bb
+        <Header selected="第三方模块" />
         <div
           class={tw`section-x-inset-xl mt-16 mb-28 flex items-center flex-col gap-12 lg:(items-start flex-row gap-36)`}
         >

@@ -89,12 +89,8 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
         </title>
         <link rel="canonical" href={`https://deno.land/manual${path}`} />
       </Head>
-<<<<<<< HEAD
-      <Header selected="手册" manual userToken={data.userToken} />
-=======
-      <Header selected="Manual" manual />
+      <Header selected="手册" manual />
 
->>>>>>> ce78d35542758097e9dfb9ae76db565d319642bb
       <SidePanelPage
         sidepanel={
           <>
