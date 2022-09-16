@@ -6,8 +6,10 @@ import { h } from "preact";
 import { apply, css, tw } from "@twind";
 import * as Icons from "./Icons.tsx";
 import GlobalSearch from "@/islands/GlobalSearch.tsx";
+import versions from "@/versions.json" assert { type: "json" };
 
 const entries = [
+<<<<<<< HEAD
   { href: "/manual", content: "手册" },
   {
     href: "https://doc.deno.land/deno/stable",
@@ -15,6 +17,12 @@ const entries = [
   },
   { href: "/std", content: "标准库" },
   { href: "/x", content: "第三方模块" },
+=======
+  { href: "/manual", content: "Manual" },
+  { href: "/api", content: "API" },
+  { href: "/std", content: "Standard Library" },
+  { href: "/x", content: "Third Party Modules" },
+>>>>>>> 0fa262c83b6a5dd2c4e04ed4ad55a37ceba37450
 ] as const;
 
 type ContentTypes = (typeof entries)[number]["content"];
@@ -59,11 +67,11 @@ export function Header({ selected, main, manual }: {
               <img class={tw`h-full w-full`} src="/logo.svg" alt="Deno Logo" />
             </a>
 
-            <GlobalSearch />
+            <GlobalSearch denoVersion={versions.cli[0]} />
 
             <label
               tabIndex={0}
-              class={tw`lg:hidden ${
+              class={tw`cursor-pointer lg:hidden ${
                 css({
                   "touch-action": "manipulation",
                 })
