@@ -9,20 +9,10 @@ import GlobalSearch from "@/islands/GlobalSearch.tsx";
 import versions from "@/versions.json" assert { type: "json" };
 
 const entries = [
-<<<<<<< HEAD
   { href: "/manual", content: "手册" },
-  {
-    href: "https://doc.deno.land/deno/stable",
-    content: "API",
-  },
+  { href: "/api", content: "API" },
   { href: "/std", content: "标准库" },
   { href: "/x", content: "第三方模块" },
-=======
-  { href: "/manual", content: "Manual" },
-  { href: "/api", content: "API" },
-  { href: "/std", content: "Standard Library" },
-  { href: "/x", content: "Third Party Modules" },
->>>>>>> 926f507d07aa77277953eb28f0a9ce5893be3a31
 ] as const;
 
 type ContentTypes = (typeof entries)[number]["content"];
