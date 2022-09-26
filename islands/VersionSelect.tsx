@@ -16,7 +16,7 @@ export default function VersionSelect({ versions, selectedVersion }: {
     <>
       <div class={tw`relative`}>
         <label htmlFor="version" class={tw`sr-only`}>
-        版本
+          版本
         </label>
         {selectedIsLatest && (
           <div
