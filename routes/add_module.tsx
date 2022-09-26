@@ -3,8 +3,8 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
-import { Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import AddModule from "@/islands/AddModule.tsx";
@@ -13,9 +13,19 @@ import * as Icons from "@/components/Icons.tsx";
 export default function AddModulePage() {
   return (
     <>
+<<<<<<< HEAD
       <Head>
         <title>第三方模块 | Deno</title>
       </Head>
+=======
+      <ContentMeta
+        title="Third Party Modules"
+        description="Register a module with the third party
+          registry."
+        creator="@deno_land"
+        keywords={["deno", "registry", "modules", "javascript", "typescript"]}
+      />
+>>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <div>
         <Header selected="第三方模块" />
         <div

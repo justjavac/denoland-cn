@@ -3,9 +3,9 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
-import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps, RouteConfig } from "$fresh/server.ts";
 import { tw } from "@twind";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import { Build, getBuild } from "@/util/registry_utils.ts";
@@ -21,9 +21,19 @@ export default function StatusPage(
 ) {
   return (
     <>
+<<<<<<< HEAD
       <Head>
         <title>发布状态 | Deno</title>
       </Head>
+=======
+      <ContentMeta
+        title="Publish Status"
+        description="The status of the publish webhook for the third party
+          registry."
+        creator="@deno_land"
+        keywords={["deno", "module", "registry", "status"]}
+      />
+>>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <div class={tw`bg-gray-50 min-h-full`}>
         <Header />
         <div class={tw`section-x-inset-md mt-8 pb-8 mb-16`}>

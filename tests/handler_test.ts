@@ -65,7 +65,11 @@ Deno.test({
     const text = await res.text();
     assertStringIncludes(
       text,
+<<<<<<< HEAD
       "<title>Deno - 现代的 JavaScript 和 TypeScript 运行时</title>",
+=======
+      "<title>Deno — A modern runtime for JavaScript and TypeScript</title>",
+>>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
     );
   },
 });
@@ -81,7 +85,10 @@ Deno.test({
     );
     assert(res.headers.get("Content-Type")?.includes("text/html"));
     const text = await res.text();
-    assertStringIncludes(text, "<title>std@0.127.0 | Deno</title>");
+    assertStringIncludes(
+      text,
+      "<title>/version.ts | std@0.127.0 | Deno</title>",
+    );
   },
 });
 

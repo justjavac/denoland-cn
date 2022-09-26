@@ -3,8 +3,8 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
-import { Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import { Header } from "@/components/Header.tsx";
 import * as Icons from "@/components/Icons.tsx";
@@ -27,9 +27,17 @@ interface Data {
 export default function ShowcasePage() {
   return (
     <>
+<<<<<<< HEAD
       <Head>
         <title>案例展示 | Deno</title>
       </Head>
+=======
+      <ContentMeta
+        title="Showcase"
+        description="Check out some websites, apps, and other products built with Deno."
+        keywords={["deno", "showcase", "javascript", "typescript"]}
+      />
+>>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <Header />
       <div class={tw`section-x-inset-xl mt-8 mb-24`}>
         <div class={tw`max-w-screen-lg mx-auto`}>

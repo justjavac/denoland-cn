@@ -50,6 +50,15 @@ export function getDocURL(_version: string, path: string): string {
   return `${sourcepath}master${path}.md`;
 }
 
+export function getDescription(content: string): string | undefined {
+  const paras = content.split("\n\n");
+  for (const para of paras) {
+    if (para.match(/^[^#`]/)) {
+      return para.slice(0, 199);
+    }
+  }
+}
+
 export function isPreviewVersion(version: string): boolean {
   return VERSIONS.cli.find((v) => v === version) === undefined;
 }
