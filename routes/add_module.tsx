@@ -3,8 +3,8 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
-import { Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import AddModule from "@/islands/AddModule.tsx";
@@ -13,9 +13,12 @@ import * as Icons from "@/components/Icons.tsx";
 export default function AddModulePage() {
   return (
     <>
-      <Head>
-        <title>第三方模块 | Deno</title>
-      </Head>
+      <ContentMeta
+        title="第三方模块"
+        description="在第三方模块仓库中注册模块"
+        creator="@deno_land"
+        keywords={["deno", "registry", "modules", "javascript", "typescript"]}
+      />
       <div>
         <Header selected="第三方模块" />
         <div

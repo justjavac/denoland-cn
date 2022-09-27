@@ -4,15 +4,16 @@
 /** @jsxFrag Fragment */
 import { Fragment, h } from "preact";
 import { PageProps, RouteConfig } from "$fresh/server.ts";
-import { Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
 import { Handlers } from "$fresh/server.ts";
+import { ContentMeta } from "@/components/ContentMeta.tsx";
 import { Header } from "@/components/Header.tsx";
 import { Footer } from "@/components/Footer.tsx";
 import { Markdown } from "@/components/Markdown.tsx";
 import * as Icons from "@/components/Icons.tsx";
 import { ManualOrAPI, SidePanelPage } from "@/components/SidePanelPage.tsx";
 import {
+  getDescription,
   getDocURL,
   getFileURL,
   getTableOfContents,
@@ -83,18 +84,25 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
 
   return (
     <>
-      <Head>
-        <title>
-          {pageTitle === "" ? "手册 | Deno" : `${pageTitle} | 手册 | Deno`}
-        </title>
-        <link rel="canonical" href={`https://deno.land/manual${path}`} />
-      </Head>
+      <ContentMeta
+        title={pageTitle ? `${pageTitle} | 手册` : "手册"}
+        description={getDescription(data.content)}
+        creator="@deno_land"
+        ogType="article"
+        keywords={[
+          "deno",
+          "manual",
+          "documentation",
+          "javascript",
+          "typescript",
+        ]}
+      />
       <Header selected="手册" manual />
 
       <SidePanelPage
         sidepanel={
           <>
-            <ManualOrAPI current="Manual" version={version} />
+            <ManualOrAPI current="手册" version={version} />
             <div class={tw`space-y-3 children:w-full`}>
               <VersionSelect
                 versions={Object.fromEntries(
