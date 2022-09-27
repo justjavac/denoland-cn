@@ -108,18 +108,12 @@ function ModuleHit(
 export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
   return (
     <>
-<<<<<<< HEAD
-      <Head>
-        <title>第三方模块 | Deno</title>
-      </Head>
-=======
       <ContentMeta
-        title="Third Party Modules"
+        title="第三方模块"
         description="A hosting service for Deno scripts."
         creator="@deno_land"
         keywords={["deno", "third party", "module", "registry"]}
       />
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <div>
         <Header selected="第三方模块" />
 

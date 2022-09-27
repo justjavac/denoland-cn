@@ -27,17 +27,11 @@ interface Data {
 export default function ShowcasePage() {
   return (
     <>
-<<<<<<< HEAD
-      <Head>
-        <title>案例展示 | Deno</title>
-      </Head>
-=======
       <ContentMeta
-        title="Showcase"
+        title="案例展示"
         description="Check out some websites, apps, and other products built with Deno."
         keywords={["deno", "showcase", "javascript", "typescript"]}
       />
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <Header />
       <div class={tw`section-x-inset-xl mt-8 mb-24`}>
         <div class={tw`max-w-screen-lg mx-auto`}>

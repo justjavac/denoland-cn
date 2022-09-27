@@ -65,11 +65,7 @@ Deno.test({
     const text = await res.text();
     assertStringIncludes(
       text,
-<<<<<<< HEAD
-      "<title>Deno - 现代的 JavaScript 和 TypeScript 运行时</title>",
-=======
-      "<title>Deno — A modern runtime for JavaScript and TypeScript</title>",
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
+      "<title>Deno — 现代的 JavaScript 和 TypeScript 运行时</title>",
     );
   },
 });

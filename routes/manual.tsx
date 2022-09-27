@@ -84,17 +84,8 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
 
   return (
     <>
-<<<<<<< HEAD
-      <Head>
-        <title>
-          {pageTitle === "" ? "手册 | Deno" : `${pageTitle} | 手册 | Deno`}
-        </title>
-        <link rel="canonical" href={`https://deno.land/manual${path}`} />
-      </Head>
-      <Header selected="手册" manual />
-=======
       <ContentMeta
-        title={pageTitle ? `${pageTitle} | Manual` : "Manual"}
+        title={pageTitle ? `${pageTitle} | 手册` : "手册"}
         description={getDescription(data.content)}
         creator="@deno_land"
         ogType="article"
@@ -106,13 +97,12 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
           "typescript",
         ]}
       />
-      <Header selected="Manual" manual />
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
+      <Header selected="手册" manual />
 
       <SidePanelPage
         sidepanel={
           <>
-            <ManualOrAPI current="Manual" version={version} />
+            <ManualOrAPI current="手册" version={version} />
             <div class={tw`space-y-3 children:w-full`}>
               <VersionSelect
                 versions={Object.fromEntries(

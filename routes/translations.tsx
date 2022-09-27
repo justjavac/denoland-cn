@@ -25,17 +25,11 @@ interface Translation {
 export default function TranslationsPage() {
   return (
     <>
-<<<<<<< HEAD
-      <Head>
-        <title>翻译 | Deno</title>
-      </Head>
-=======
       <ContentMeta
-        title="Translations"
+        title="翻译"
         description="Deno docs is available in the following languages."
         keywords={["deno", "documentation", "translation"]}
       />
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <Header />
       <div class={tw`section-x-inset-xl mt-8 mb-24`}>
         <div class={tw`max-w-screen-lg mx-auto`}>

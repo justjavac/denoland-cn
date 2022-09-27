@@ -13,19 +13,12 @@ import * as Icons from "@/components/Icons.tsx";
 export default function AddModulePage() {
   return (
     <>
-<<<<<<< HEAD
-      <Head>
-        <title>第三方模块 | Deno</title>
-      </Head>
-=======
       <ContentMeta
-        title="Third Party Modules"
-        description="Register a module with the third party
-          registry."
+        title="第三方模块"
+        description="在第三方模块仓库中注册模块"
         creator="@deno_land"
         keywords={["deno", "registry", "modules", "javascript", "typescript"]}
       />
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <div>
         <Header selected="第三方模块" />
         <div

@@ -21,19 +21,13 @@ export default function StatusPage(
 ) {
   return (
     <>
-<<<<<<< HEAD
-      <Head>
-        <title>发布状态 | Deno</title>
-      </Head>
-=======
       <ContentMeta
-        title="Publish Status"
+        title="发布状态"
         description="The status of the publish webhook for the third party
           registry."
         creator="@deno_land"
         keywords={["deno", "module", "registry", "status"]}
       />
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <div class={tw`bg-gray-50 min-h-full`}>
         <Header />
         <div class={tw`section-x-inset-md mt-8 pb-8 mb-16`}>

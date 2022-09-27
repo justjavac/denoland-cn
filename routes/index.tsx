@@ -44,9 +44,8 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (27ms
   return (
     <div>
       <ContentMeta
-        title="Deno — A modern runtime for JavaScript and TypeScript"
-        description="Deno is a simple, modern runtime for JavaScript and
-          TypeScript that uses V8 and is built in Rust."
+        title="Deno — 现代的 JavaScript 和 TypeScript 运行时"
+        description="Deno 是一个简单的，现代化的 JavaScript 和 TypeScript 运行时，基于 V8 和 Rust 构建。"
         creator="@deno_land"
         noAppendTitle
       />
@@ -56,12 +55,6 @@ test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (27ms
             Check out Deno News issue #51!
           </HelloBar>
         )}
-<<<<<<< HEAD
-      <Head>
-        <title>Deno - 现代的 JavaScript 和 TypeScript 运行时</title>
-      </Head>
-=======
->>>>>>> 77fdaa6019913bb8531391d9f9e57e308ceebd84
       <div class={tw`bg-white`}>
         <div
           class={tw`bg-gray-50 overflow-x-hidden border-b border-gray-200 relative`}

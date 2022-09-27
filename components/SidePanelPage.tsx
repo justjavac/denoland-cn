@@ -60,7 +60,7 @@ export function SidePanelPage({ children, sidepanel }: {
 }
 
 const entries = {
-  "Manual": "/manual",
+  "手册": "/manual",
   "Runtime APIs": "/api",
 } as const;
 
@@ -69,7 +69,7 @@ export function ManualOrAPI(
 ) {
   return (
     <div class={tw`border-b border-light-border flex gap-1`}>
-      {(["Manual", "Runtime APIs"] as const).map((key) => (
+      {(["手册", "Runtime APIs"] as const).map((key) => (
         <a
           class={tw`-mb-px px-2.5 font-medium leading-none rounded-md hover:(bg-gray-100 text-main)`}
           href={`${entries[key]}@${version}`}
