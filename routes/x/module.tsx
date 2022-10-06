@@ -8,6 +8,7 @@ import { tw } from "@twind";
 import twas from "$twas";
 import { emojify } from "$emoji";
 import { accepts } from "$oak_commons";
+import { setSymbols } from "@/util/doc_utils.ts";
 import {
   type DocPage,
   type DocPageIndex,
@@ -15,6 +16,7 @@ import {
   type DocPageSymbol,
   extractAltLineNumberReference,
   fetchSource,
+  getCanonicalUrl,
   getDocAsDescription,
   getModulePath,
   getRawFile,
@@ -224,7 +226,12 @@ export const handler: Handlers<PageData> = {
       );
     }
 
-    return render!({ data });
+    await setSymbols(
+      (data.data.kind === "module" || data.data.kind === "symbol")
+        ? data.data.symbols
+        : undefined,
+    );
+    return render({ data });
   },
 };
 
@@ -279,11 +286,17 @@ export default function Registry(
   const path = maybePath ? "/" + maybePath : "";
   const isStd = name === "std";
 
+  let canonical: URL | undefined;
+  if (data && "latest_version" in data.data) {
+    canonical = getCanonicalUrl(url, data.data.latest_version);
+  }
+
   return (
     <>
       <ContentMeta
         title={getTitle(name, version, data)}
         description={getDescription(data)}
+        canonical={canonical}
         ogImage={isStd ? "std" : "modules"}
         keywords={["deno", "third party", "module", name]}
       />
