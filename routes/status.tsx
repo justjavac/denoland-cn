@@ -28,13 +28,8 @@ export default function StatusPage(
         <Header />
         <div class="section-x-inset-md mt-8 pb-8 mb-16">
           <div>
-<<<<<<< HEAD
-            <h3 class={tw`text-lg leading-6 font-medium text-gray-900`}>
-              模块发布状态
-=======
             <h3 class="text-lg leading-6 font-medium text-gray-900">
-              Module publishing status
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+              模块发布状态
             </h3>
             {!(data instanceof Error) &&
               (
@@ -52,15 +47,9 @@ export default function StatusPage(
             : (
               <div class="mt-5 border-t border-gray-200 pt-5">
                 <dl>
-<<<<<<< HEAD
-                  <div class={tw`sm:grid sm:grid-cols-3 sm:gap-4`}>
-                    <dt class={tw`text-sm leading-5 font-medium text-gray-500`}>
-                      仓库
-=======
                   <div class="sm:grid sm:grid-cols-3 sm:gap-4">
                     <dt class="text-sm leading-5 font-medium text-gray-500">
-                      Repository
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                      仓库
                     </dt>
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                       <a
@@ -72,33 +61,17 @@ export default function StatusPage(
                       </a>
                     </dd>
                   </div>
-<<<<<<< HEAD
-                  <div
-                    class={tw`mt-8 sm:grid sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5`}
-                  >
-                    <dt class={tw`text-sm leading-5 font-medium text-gray-500`}>
-                      版本
-=======
                   <div class="mt-8 sm:grid sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                     <dt class="text-sm leading-5 font-medium text-gray-500">
-                      Version
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                      版本
                     </dt>
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                       {data.options.version}
                     </dd>
                   </div>
-<<<<<<< HEAD
-                  <div
-                    class={tw`mt-8 sm:grid sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5`}
-                  >
-                    <dt class={tw`text-sm leading-5 font-medium text-gray-500`}>
-                      源码
-=======
                   <div class="mt-8 sm:grid sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                     <dt class="text-sm leading-5 font-medium text-gray-500">
-                      Source
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                      源码
                     </dt>
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                       <a
@@ -111,17 +84,9 @@ export default function StatusPage(
                       </a>
                     </dd>
                   </div>
-<<<<<<< HEAD
-                  <div
-                    class={tw`mt-8 sm:grid sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5`}
-                  >
-                    <dt class={tw`text-sm leading-5 font-medium text-gray-500`}>
-                      状态
-=======
                   <div class="mt-8 sm:grid sm:mt-5 sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                     <dt class="text-sm leading-5 font-medium text-gray-500">
-                      Status
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                      状态
                     </dt>
                     <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                       <div class="flex">

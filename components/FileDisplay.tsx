@@ -25,31 +25,18 @@ export function FileDisplay(props: {
       <div class="py-3 px-5 flex justify-between items-center border-b border-gray-200">
         <div class="flex items-center gap-2">
           <Icons.Source class="text-gray-500" />
-<<<<<<< HEAD
-          <span class={tw`text-lg leading-5 font-semibold`}>文件</span>
-=======
-          <span class="text-lg leading-5 font-semibold">File</span>
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+          <span class="text-lg leading-5 font-semibold">文件</span>
         </div>
         <div class="flex items-center gap-3">
           <a
             href={props.repositoryURL}
-<<<<<<< HEAD
             title="GitHub 仓库地址"
-            class={tw`icon-button`}
-=======
-            title="Repository URL"
             class="icon-button"
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
           >
             <Icons.GitHub class="h-4 w-auto" />
           </a>
           {props.docable && (
-<<<<<<< HEAD
-            <a href={doc.href} title="文档" class={tw`icon-button`}>
-=======
-            <a href={doc.href} title="Documentation" class="icon-button">
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+            <a href={doc.href} title="文档" class="icon-button">
               <Icons.Docs class="h-4 w-auto" />
             </a>
           )}

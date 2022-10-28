@@ -254,15 +254,8 @@ export default function GlobalSearch({ denoVersion }: { denoVersion: string }) {
       >
         <div class="flex items-center pointer-events-none">
           <Icons.MagnifyingGlass />
-<<<<<<< HEAD
-          <div
-            class={tw`ml-1.5 py-2.5 h-9 flex-auto text-light text-sm leading-4 font-medium text-left`}
-          >
-            搜索...
-=======
           <div class="ml-1.5 py-2.5 h-9 flex-auto text-sm leading-4 font-medium text-left">
-            Search...
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+            搜索...
           </div>
           <div class="mx-4">
             ⌘K
@@ -403,17 +396,9 @@ export default function GlobalSearch({ denoVersion }: { denoVersion: string }) {
                 )}
             </div>
 
-<<<<<<< HEAD
             {kind !== "全部" && results && (
-              <div
-                class={tw`bg-ultralight border-t border-[#E8E7E5] py-3 px-6 flex items-center justify-between`}
-              >
-                <div class={tw`py-2 flex items-center space-x-3`}>
-=======
-            {kind !== "All" && results && (
               <div class="bg-ultralight border-t border-[#E8E7E5] py-3 px-6 flex items-center justify-between">
                 <div class="py-2 flex items-center space-x-3">
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
                   <button
                     class="p-1 border border-border rounded-md not-disabled:hover:bg-border disabled:(text-[#D2D2DC] cursor-not-allowed)"
                     onClick={() => setPage((page) => page - 1)}

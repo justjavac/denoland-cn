@@ -99,13 +99,8 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
       <SidePanelPage
         sidepanel={
           <>
-<<<<<<< HEAD
             <ManualOrAPI current="手册" version={version} />
-            <div class={tw`space-y-3 children:w-full`}>
-=======
-            <ManualOrAPI current="Manual" version={version} />
             <div class="space-y-3 children:w-full">
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
               <VersionSelect
                 versions={Object.fromEntries(
                   versions.map((ver) => [ver, `/manual@${ver}${path}`]),

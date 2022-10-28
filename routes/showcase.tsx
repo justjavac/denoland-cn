@@ -30,17 +30,10 @@ export default function ShowcasePage() {
         keywords={["deno", "showcase", "javascript", "typescript"]}
       />
       <Header />
-<<<<<<< HEAD
-      <div class={tw`section-x-inset-xl mt-8 mb-24`}>
-        <div class={tw`max-w-screen-lg mx-auto`}>
-          <h4 class={tw`text-4xl font-bold tracking-tight`}>案例展示</h4>
-          <p class={tw`mt-4 text-lg`}>
-=======
       <div class="section-x-inset-xl mt-8 mb-24">
         <div class="max-w-screen-lg mx-auto">
-          <h4 class="text-4xl font-bold tracking-tight">Showcase</h4>
+          <h4 class="text-4xl font-bold tracking-tight">案例展示</h4>
           <p class="mt-4 text-lg">
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
             Check out some websites, apps, and other products built with Deno.
           </p>
           <div class="my-16 flex flex-row flex-wrap gap-16 justify-evenly items-end">

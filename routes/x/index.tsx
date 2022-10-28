@@ -121,52 +121,22 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
           class="w-full hidden md:block"
         />
 
-<<<<<<< HEAD
-        <div class={tw`section-x-inset-lg mt-16 mb-24 space-y-15`}>
-          <div class={tw`flex items-start gap-14`}>
-            <div class={tw`space-y-4 w-full`}>
-              <h1 class={tw`font-bold text-3xl text-black`}>
-                Deno 第三方模块
-=======
         <div class="section-x-inset-lg mt-16 mb-24 space-y-15">
           <div class="flex items-start gap-14">
             <div class="space-y-4 w-full">
               <h1 class="font-bold text-3xl text-black">
-                Deno Third Party Modules
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                Deno 第三方模块
               </h1>
 
               <div class="leading-5 text-[#6C6E78] space-y-3">
                 <p>
-<<<<<<< HEAD
-                  <span class={tw`font-semibold text-default`}>
-                    deno.js.cn/x
-=======
                   <span class="font-semibold text-default">
-                    deno.land/x
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                    deno.js.cn/x
                   </span>{" "}
                   是 Deno 脚本的托管服务。它缓存 GitHub 上的开源模块的 Release 代码，并在一个易于记忆的域名中提供它们。
                 </p>
                 <p>
-<<<<<<< HEAD
                   Deno 可以从网络上的任何位置导入模块，例如 GitHub、个人网站或 CDN，例如{" "}
-                  <a href="https://esm.sh/" class={tw`link`}>
-                    esm.sh
-                  </a>
-                  ，
-                  <a href="https://www.skypack.dev" class={tw`link`}>
-                    Skypack
-                  </a>
-                  ，
-                  <a href="https://jspm.io" class={tw`link`}>
-                    jspm.io
-                  </a>{" "}
-                  或{" "}
-                  <a href="https://www.jsdelivr.com/" class={tw`link`}>
-=======
-                  Deno can import modules from any location on the web, like
-                  GitHub, a personal webserver, or a CDN like{" "}
                   <a href="https://esm.sh/" class="link">
                     esm.sh
                   </a>
@@ -180,20 +150,13 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                   </a>{" "}
                   or{" "}
                   <a href="https://www.jsdelivr.com/" class="link">
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
                     jsDelivr
                   </a>
                   .
                 </p>
                 <p>
-<<<<<<< HEAD
                   为了更方便地使用第三方模块，Deno 提供了一些内置的工具，如{" "}
-                  <a class={tw`link`} href="/manual/tools/dependency_inspector">
-=======
-                  To make it easier to consume third party modules Deno provides
-                  some built in tooling like{" "}
                   <a class="link" href="/manual/tools/dependency_inspector">
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
                     <InlineCode>deno info</InlineCode>
                   </a>{" "}
                   和{" "}
@@ -212,14 +175,9 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                   <Icons.Plus />
                   <span>发布模块</span>
                 </a>
-<<<<<<< HEAD
-                <a href="#Q&A" class={tw`button-alternate`}>
-                  了解更多
-=======
 
                 <a href="#Q&A" class="button-alternate">
-                  Learn more
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+                  了解更多
                 </a>
               </div>
             </div>
@@ -230,11 +188,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
               class="px-5 py-4 flex items-center justify-between border-b border-border bg-ultralight leading-none"
               method="get"
             >
-<<<<<<< HEAD
-              <span class={tw`font-semibold`}>浏览模块</span>
-=======
-              <span class="font-semibold">Explore Modules</span>
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+              <span class="font-semibold">浏览模块</span>
               <label
                 class={tw`px-4 h-9 w-full md:w-88 bg-white rounded-md flex items-center gap-1.5 box-content border border-border text-gray-400 focus-within:${
                   css({
@@ -245,13 +199,8 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                 <input
                   type="text"
                   name="query"
-<<<<<<< HEAD
                   placeholder={`在 ${data.search.nbHits} 个模块中搜索...`}
-                  class={tw`w-full bg-transparent text-default placeholder:text-gray-400 outline-none`}
-=======
-                  placeholder={`Search through ${data.search.nbHits} modules...`}
                   class="w-full bg-transparent text-default placeholder:text-gray-400 outline-none"
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
                   value={data.search.query}
                 />
                 <Icons.MagnifyingGlass />

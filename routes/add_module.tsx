@@ -16,19 +16,10 @@ export default function AddModulePage() {
         keywords={["deno", "registry", "modules", "javascript", "typescript"]}
       />
       <div>
-<<<<<<< HEAD
         <Header selected="第三方模块" />
-        <div
-          class={tw`section-x-inset-xl mt-16 mb-28 flex items-center flex-col gap-12 lg:(items-start flex-row gap-36)`}
-        >
-          <div class={tw`text-base w-full lg:w-88 flex-shrink-0 space-y-5`}>
-            <h1 class={tw`font-bold text-3xl leading-none`}>Adding a module</h1>
-=======
-        <Header selected="Third Party Modules" />
         <div class="section-x-inset-xl mt-16 mb-28 flex items-center flex-col gap-12 lg:(items-start flex-row gap-36)">
           <div class="text-base w-full lg:w-88 flex-shrink-0 space-y-5">
-            <h1 class="font-bold text-3xl leading-none">Adding a module</h1>
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+            <h1 class="font-bold text-3xl leading-none">添加模块</h1>
             <div>
               <p>
                 All modules on <b class="font-semibold">deno.land/x</b>{" "}

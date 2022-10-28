@@ -10,15 +10,9 @@ export default function VersionSelect({ versions, selectedVersion }: {
   const selectedIsLatest = selectedVersion === latestVersion;
   return (
     <>
-<<<<<<< HEAD
-      <div class={tw`relative`}>
-        <label htmlFor="version" class={tw`sr-only`}>
-          版本
-=======
       <div class="relative">
         <label htmlFor="version" class="sr-only">
-          Version
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+          版本
         </label>
         {selectedIsLatest && (
           <div class="flex absolute pointer-events-none select-none w-full h-full items-center justify-end pr-8">

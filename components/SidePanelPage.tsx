@@ -59,13 +59,8 @@ export function ManualOrAPI(
   { current, version }: { current: keyof typeof entries; version: string },
 ) {
   return (
-<<<<<<< HEAD
-    <div class={tw`border-b border-light-border flex gap-1`}>
-      {(["手册", "Runtime APIs"] as const).map((key) => (
-=======
     <div class="border-b border-border flex gap-1">
-      {(["Manual", "Runtime APIs"] as const).map((key) => (
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+      {(["手册", "Runtime APIs"] as const).map((key) => (
         <a
           class="-mb-px px-2.5 font-medium leading-none rounded-md hover:bg-grayDefault"
           href={`${entries[key]}@${version}`}

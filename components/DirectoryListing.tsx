@@ -26,11 +26,7 @@ export function DirectoryListing(props: {
       <div class="py-3 px-5 flex justify-between items-center">
         <div class="flex items-center gap-2">
           <Icons.Index class="h-4 w-auto text-gray-500" />
-<<<<<<< HEAD
-          <span class={tw`text-lg leading-5 font-semibold`}>目录</span>
-=======
-          <span class="text-lg leading-5 font-semibold">Directory</span>
->>>>>>> ad8e54dbd6b01c078e15c16a709950dafb22d057
+          <span class="text-lg leading-5 font-semibold">目录</span>
         </div>
         <div class="flex items-center gap-3">
           <a
