@@ -41,7 +41,7 @@ export default function Home({ data }: PageProps<Data>) {
       <div>
         <Header />
 
-        <div class="relative colorWash px-8 pt-12 pb-28 lg:(px-36 pt-24 pb-40) -z-10">
+        <div class="relative colorWash px-8 pt-12 pb-28 lg:(px-36 pt-24 pb-40)">
           <picture>
             <source
               srcset="/images/lp/cover@xl.avif"
@@ -175,7 +175,7 @@ export default function Home({ data }: PageProps<Data>) {
             the server.
           </ImageSubSection>
 
-          <div class="flex items-center justify-between flex-col gap-11 lg:(flex-row gap-[8%])">
+          <div class="flex justify-between flex-col gap-11 lg:(flex-row gap-[8%])">
             {[{
               Icon: Icons.OutOfTheBox,
               title: "TypeScript out of the box",
@@ -228,7 +228,7 @@ export default function Home({ data }: PageProps<Data>) {
           size="2xl"
           lgSize="5xl"
         >
-          Voted one of the most loved web technologies
+          Voted one of the most loved web technologies{" "}
           <br class="hidden lg:block" />in a survey of over
           70,000&nbsp;developers
         </Quote>
@@ -277,7 +277,10 @@ export default function Home({ data }: PageProps<Data>) {
           >
             The fastest JavaScript web server ever built.
             <br />
-            (<a href="https://github.com/denoland/deno/blob/v1.28.0/cli/bench/http/deno_http_flash.js">
+            (<a
+              class="text-mainBlue hover:underline"
+              href="https://github.com/denoland/deno/blob/v1.28.0/cli/bench/http/deno_http_flash.js"
+            >
               HTTP hello&#8288;-&#8288;world
             </a>{" "}
             using wrk on&nbsp;mac&#8288;)
@@ -294,7 +297,8 @@ export default function Home({ data }: PageProps<Data>) {
             header="Powered by Chrome's V8"
             noBackground
           >
-            Built on top of the fastest and most complete JavaScript engine.
+            Built on top of the fastest and&nbsp;most complete
+            JavaScript&nbsp;engine.
           </ImageSubSection>
         </Section>
 
@@ -527,7 +531,7 @@ function Quote(
         <blockquote
           class={`text-white font-semibold text-${size} lg:text-${lgSize} leading-tight`}
         >
-          {children}
+          "{children}"
         </blockquote>
         <a class="inline-block mx-auto lg:mx-none" href={href}>
           <img
