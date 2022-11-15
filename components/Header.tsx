@@ -7,14 +7,6 @@ import * as Icons from "./Icons.tsx";
 import GlobalSearch from "@/islands/GlobalSearch.tsx";
 import versions from "@/versions.json" assert { type: "json" };
 
-<<<<<<< HEAD
-const entries = [
-  { href: "/manual", content: "手册" },
-  { href: "/api", content: "API" },
-  { href: "/std", content: "标准库" },
-  { href: "/x", content: "第三方模块" },
-] as const;
-=======
 interface HrefEntry {
   content: string;
   href: string;
@@ -29,15 +21,15 @@ const entries: Array<HrefEntry | ChildrenEntry> = [
   {
     content: "Modules",
     children: [
-      { href: "/std", content: "Standard Library" },
-      { href: "/x", content: "Third Party Modules" },
+      { href: "/std", content: "标准库" },
+      { href: "/x", content: "第三方模块" },
       { href: "/manual/node", content: "NPM" },
     ],
   },
   {
     content: "Docs",
     children: [
-      { href: "/manual", content: "Manual" },
+      { href: "/manual", content: "手册" },
       { href: "/api", content: "API" },
     ],
   },
@@ -68,7 +60,6 @@ const entries: Array<HrefEntry | ChildrenEntry> = [
     ],
   },
 ];
->>>>>>> 13d93c178fd15cc0cb3d6dd6e574b25aa82bfcae
 
 type ContentTypes = (typeof entries)[number]["content"];
 
