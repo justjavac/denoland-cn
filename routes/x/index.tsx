@@ -125,7 +125,7 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
           <div class="flex items-start gap-14">
             <div class="space-y-4 w-full">
               <h1 class="font-bold text-3xl text-default">
-              Deno 第三方模块
+                Deno 第三方模块
               </h1>
 
               <div class="leading-5 text-[#6C6E78] space-y-3">
