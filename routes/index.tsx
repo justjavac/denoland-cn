@@ -76,34 +76,6 @@ export default function Home({ data }: PageProps<Data>) {
                 media="(min-width: 768px)"
               />
 
-<<<<<<< HEAD
-            <source srcset="/images/lp/cover.avif" type="image/avif" />
-            <source srcset="/images/lp/cover.webp" type="image/webp" />
-            <img
-              class="object-cover w-full h-full absolute inset-0"
-              src="/images/lp/cover.jpg"
-              alt="Background Image"
-            />
-          </picture>
-          <div class="relative text-white space-y-6 lg:(space-y-16 w-[40rem])">
-            <div class="space-y-2.5 lg:space-y-8">
-              <p class="font-semibold text-xl lg:text-3xl leading-none">
-                Meet Deno
-              </p>
-              <h1 class="font-bold text-5xl lg:text-7xl leading-none">
-                The easiest,<br />most secure{" "}
-                <br class="hidden sm:block lg:hidden" />JavaScript runtime.
-              </h1>
-            </div>
-            <div class="inline-flex gap-4 flex-col lg:(gap-7 flex-row)">
-              <a
-                class="button-primary justify-center"
-                href="/manual/getting_started/installation"
-              >
-                安装
-              </a>
-              <a class="button-primary" href="/manual">文档</a>
-=======
               <source srcSet="/images/lp/cover.avif" type="image/avif" />
               <source srcSet="/images/lp/cover.webp" type="image/webp" />
               <img
@@ -131,7 +103,6 @@ export default function Home({ data }: PageProps<Data>) {
                 </a>
                 <a class="button-primary" href="/manual">Documentation</a>
               </div>
->>>>>>> e719d97d48e0927160fd10ca97051d895e1b8ebf
             </div>
           </div>
         </div>
