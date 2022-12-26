@@ -26,16 +26,9 @@ const MODULE_INDEX = "modules";
 const MANUAL_INDEX = "manual";
 
 const kinds = [
-<<<<<<< HEAD
   "全部",
   "手册",
   "模块",
-  "Symbols",
-=======
-  "All",
-  "Manual",
-  "Modules",
->>>>>>> 636e4ccbe16aaf0b7c44b9416c34cf6c110da8ef
 ] as const;
 
 type SearchKinds = typeof kinds[number];
@@ -140,27 +133,7 @@ export default function GlobalSearch() {
       });
     }
 
-<<<<<<< HEAD
-    if (kind === "Symbols" || kind === "全部") {
-      queries.push({
-        indexName: SYMBOL_INDEX,
-        query: input || "serve",
-        params: {
-          page: page,
-          hitsPerPage: kind === "全部" ? 5 : 10,
-          clickAnalytics: true,
-          filters: Object.entries(symbolKindsToggle)
-            .filter(([_, v]) => kind === "Symbols" ? v : true)
-            .map(([k]) => "kind:" + symbolKinds[k as keyof typeof symbolKinds])
-            .join(" OR "),
-        },
-      });
-    }
-
     if (kind === "模块" || kind === "全部") {
-=======
-    if (kind === "Modules" || kind === "All") {
->>>>>>> 636e4ccbe16aaf0b7c44b9416c34cf6c110da8ef
       queries.push({
         indexName: MODULE_INDEX,
         query: input,
@@ -252,11 +225,7 @@ export default function GlobalSearch() {
                     type="text"
                     onInput={(e) => setInput(e.currentTarget.value)}
                     value={input}
-<<<<<<< HEAD
-                    placeholder="搜索手册、符号、模块..."
-=======
-                    placeholder="Search manual and modules..."
->>>>>>> 636e4ccbe16aaf0b7c44b9416c34cf6c110da8ef
+                    placeholder="搜索手册、模块..."
                     autoFocus
                   />
                   {loading && <Icons.Spinner />}
@@ -331,31 +300,7 @@ export default function GlobalSearch() {
                         ))}
                       </Section>
                     )}
-<<<<<<< HEAD
-                    {results.symbols && (
-                      <Section title="Symbols" isAll={kind === "全部"}>
-                        {results.symbols && results.symbols.hits.length === 0 &&
-                          (
-                            <div class="text-gray-500 italic">
-                              Your search did not yield any results in the
-                              symbol index.
-                            </div>
-                          )}
-                        {results.symbols.hits.map((symbolItem, i) => (
-                          <SymbolResult
-                            queryID={results.symbols!.queryID}
-                            position={getPosition(results.symbols!, i)}
-                            denoVersion={denoVersion}
-                          >
-                            {symbolItem}
-                          </SymbolResult>
-                        ))}
-                      </Section>
-                    )}
                     <div class={tw`${kind === "全部" ? "h-6" : "h-3.5"}`} />
-=======
-                    <div class={tw`${kind === "All" ? "h-6" : "h-3.5"}`} />
->>>>>>> 636e4ccbe16aaf0b7c44b9416c34cf6c110da8ef
                   </>
                 )
                 : (
