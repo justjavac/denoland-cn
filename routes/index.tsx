@@ -87,11 +87,11 @@ export default function Home({ data }: PageProps<Data>) {
             <div class="relative text-white space-y-6 lg:(space-y-16 w-[40rem])">
               <div class="space-y-2.5 lg:space-y-8">
                 <p class="font-semibold text-xl lg:text-3xl leading-none">
-                  Meet Deno
+                  遇见 Deno
                 </p>
                 <h1 class="font-bold text-5xl lg:text-7xl leading-none">
-                  The easiest,<br />most secure{" "}
-                  <br class="hidden sm:block lg:hidden" />JavaScript runtime.
+                  最简单、<br />最安全的{" "}
+                  <br class="hidden sm:block lg:hidden" />JavaScript 运行时。
                 </h1>
               </div>
               <div class="inline-flex gap-4 flex-col lg:(gap-7 flex-row)">
@@ -99,9 +99,9 @@ export default function Home({ data }: PageProps<Data>) {
                   class="button-primary justify-center"
                   href="/manual/getting_started/installation"
                 >
-                  Installation
+                  安装
                 </a>
-                <a class="button-primary" href="/manual">Documentation</a>
+                <a class="button-primary" href="/manual">文档</a>
               </div>
             </div>
           </div>
@@ -118,13 +118,13 @@ export default function Home({ data }: PageProps<Data>) {
           )}
 
         <Section
-          type="Easy"
-          header="The best developer experience"
-          subheader="Without the learning curve…"
+          type="简单"
+          header="最佳的开发人员体验"
+          subheader="没有陡峭的学习曲线…"
         >
           <ImageSubSection
             image={<ScrollInGif src="/images/lp/dependencies" alt="" />}
-            header="Avoid installing dependencies"
+            header="避免安装依赖项"
             additionalContent={
               <img
                 src="/images/lp/typing_deno.png"
@@ -134,7 +134,7 @@ export default function Home({ data }: PageProps<Data>) {
             }
             reverse
           >
-            Dive right into the code and skip the setup.
+            无需复杂的配置，直接进入编码阶段。
           </ImageSubSection>
 
           <ImageSubSection
@@ -171,10 +171,9 @@ export default function Home({ data }: PageProps<Data>) {
                 />
               </picture>
             }
-            header="Web-standard APIs"
+            header="符合 Web 标准的 APIs"
           >
-            A runtime that resembles the web, using browser APIs that work on
-            the server.
+            类似于 Web 的运行时，在服务器上使用浏览器的 API。
           </ImageSubSection>
 
           <div class="flex justify-between flex-col gap-11 lg:(flex-row gap-[8%])">
