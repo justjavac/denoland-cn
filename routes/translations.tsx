@@ -34,7 +34,8 @@ export default function TranslationsPage() {
             Deno 文档提供以下语言版本。
           </p>
           <p class="mt-4 text-lg">
-            免责声明：这些页面由第三方贡献者维护，而不是由 Deno 维护。它们可能包含过时的信息。
+            免责声明：这些页面由第三方贡献者维护，而不是由 Deno
+            维护。它们可能包含过时的信息。
           </p>
           <p class="mt-4 text-lg">
             弃用通知：我们不再接受新的翻译。

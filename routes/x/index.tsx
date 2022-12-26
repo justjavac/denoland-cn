@@ -132,10 +132,12 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
                   <span class="font-semibold text-default">
                     deno.js.cn/x
                   </span>{" "}
-                  是 Deno 脚本的托管服务。它缓存 GitHub 上的开源模块的 Release 代码，并在一个易于记忆的域名中提供它们。
+                  是 Deno 脚本的托管服务。它缓存 GitHub 上的开源模块的 Release
+                  代码，并在一个易于记忆的域名中提供它们。
                 </p>
                 <p>
-                  Deno 可以从网络上的任何位置导入模块，例如 GitHub、个人网站或 CDN，例如{" "}
+                  Deno 可以从网络上的任何位置导入模块，例如 GitHub、个人网站或
+                  CDN，例如{" "}
                   <a href="https://esm.sh/" class="link">
                     esm.sh
                   </a>
