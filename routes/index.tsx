@@ -179,32 +179,26 @@ export default function Home({ data }: PageProps<Data>) {
           <div class="flex justify-between flex-col gap-11 lg:(flex-row gap-[8%])">
             {[{
               Icon: Icons.OutOfTheBox,
-              title: "TypeScript out of the box",
+              title: "TypeScript 开箱即用",
               body: (
                 <>
-                  First-class support for TypeScript – no need to spend hours
-                  configuring things that break as soon as you update
-                  a&nbsp;dependency.
+                  对 TypeScript 提供一流支持——不需要花费数小时配置那些一旦更新依赖就会被破坏的东西。
                 </>
               ),
             }, {
               Icon: Icons.Tooling,
-              title: "Great all-in-one tooling",
+              title: "优秀的多合一工具",
               body: (
                 <>
-                  Built in linter, code formatter, ability to build a
-                  self-contained executable, test runner, IDE integration,
-                  and&nbsp;more.
+                  内置 linter，代码格式化器，能够构建独立的可执行文件，测试运行器，集成开发环境，以及更多。
                 </>
               ),
             }, {
               Icon: Icons.HassleFree,
-              title: "Hassle-free deployment",
+              title: "无忧无虑地部署",
               body: (
                 <>
-                  Launch to Deno Deploy with one line of code and zero server
-                  configuration, or host with other platforms of
-                  your&nbsp;choice.
+                  用一行代码和零服务器配置部署到 Deno Deploy，或托管到你选择的其他平台。
                 </>
               ),
             }].map(({ Icon, title, body }) => (
@@ -229,9 +223,8 @@ export default function Home({ data }: PageProps<Data>) {
           size="2xl"
           lgSize="5xl"
         >
-          Voted one of the most loved web technologies{" "}
-          <br class="hidden lg:block" />in a survey of over
-          70,000&nbsp;developers
+          在对超过 70,000 名开发者的调查中被评为
+          <br class="hidden lg:block" />最受欢迎的网络技术之一
         </Quote>
 
         <Section
