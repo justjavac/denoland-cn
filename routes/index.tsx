@@ -20,7 +20,7 @@ interface Data {
 const announcement = {
   major: true,
   href: "/manual/node",
-  text: "NPM compatibility is now live! Click here to get started",
+  text: "NPM 兼容性现在已经上线！点击这里开始",
 } as const;
 
 export default function Home({ data }: PageProps<Data>) {
