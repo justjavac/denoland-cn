@@ -182,7 +182,8 @@ export default function Home({ data }: PageProps<Data>) {
               title: "TypeScript 开箱即用",
               body: (
                 <>
-                  对 TypeScript 提供一流支持——不需要花费数小时配置那些一旦更新依赖就会被破坏的东西。
+                  对 TypeScript
+                  提供一流支持——不需要花费数小时配置那些一旦更新依赖就会被破坏的东西。
                 </>
               ),
             }, {
@@ -190,7 +191,8 @@ export default function Home({ data }: PageProps<Data>) {
               title: "优秀的多合一工具",
               body: (
                 <>
-                  内置 linter，代码格式化器，能够构建独立的可执行文件，测试运行器，集成开发环境，以及更多。
+                  内置
+                  linter，代码格式化器，能够构建独立的可执行文件，测试运行器，集成开发环境，以及更多。
                 </>
               ),
             }, {
@@ -198,7 +200,8 @@ export default function Home({ data }: PageProps<Data>) {
               title: "无忧无虑地部署",
               body: (
                 <>
-                  用一行代码和零服务器配置部署到 Deno Deploy，或托管到你选择的其他平台。
+                  用一行代码和零服务器配置部署到 Deno
+                  Deploy，或托管到你选择的其他平台。
                 </>
               ),
             }].map(({ Icon, title, body }) => (
