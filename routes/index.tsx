@@ -231,9 +231,9 @@ export default function Home({ data }: PageProps<Data>) {
         </Quote>
 
         <Section
-          type="Fast"
-          header="Built to perform at your speed."
-          subheader="Designed from the ground-up for high-performance."
+          type="迅速"
+          header="以你的速度构建与执行。"
+          subheader="由头至尾均为高性能而设计。"
         >
           <ImageSubSection
             image={
@@ -269,18 +269,18 @@ export default function Home({ data }: PageProps<Data>) {
                 />
               </picture>
             }
-            header="Best in class HTTP server speeds"
+            header="一流的 HTTP 服务器速度"
             reverse
           >
-            The fastest JavaScript web server ever built.
+            史上最快的 JavaScript 网络服务器。
             <br />
-            (<a
+            （在 Mac 上使用 wrk 测试的 <a
               class="text-mainBlue hover:underline"
               href="https://github.com/denoland/deno/blob/v1.28.0/cli/bench/http/deno_http_flash.js"
             >
               HTTP hello&#8288;-&#8288;world
-            </a>{" "}
-            using wrk on&nbsp;mac&#8288;)
+            </a>
+            ）
           </ImageSubSection>
 
           <ImageSubSection
@@ -291,11 +291,10 @@ export default function Home({ data }: PageProps<Data>) {
                 <img src="/images/lp/v8.png" alt="" />
               </picture>
             }
-            header="Powered by Chrome's V8"
+            header="由 Chrome 的 V8 引擎赋能"
             noBackground
           >
-            Built on top of the fastest and&nbsp;most complete
-            JavaScript&nbsp;engine.
+            构建于最快、最完整的 JavaScript 引擎之上。
           </ImageSubSection>
         </Section>
 
@@ -305,19 +304,18 @@ export default function Home({ data }: PageProps<Data>) {
           size="xl"
           lgSize="[2.75rem]"
         >
-          What stood out first and foremost to our team was their laser focus on
-          security... like the ability to execute code with limited access to
-          the file system or external domains.
+          对我们的团队而言，最突出的是他们对安全的高度关注......
+          例如在对文件系统或外部域的有限访问下执行代码的能力。
         </Quote>
 
         <Section
-          type="Secure"
-          header="Secure by default."
-          subheader="Take total control over your workflow."
+          type="安全"
+          header="默认就安全。"
+          subheader="对你的工作流程进行全面的控制。"
         >
           <ImageSubSection
             image={<ScrollInGif src="/images/lp/secure" alt="" />}
-            header="Run untrusted code"
+            header="运行不受信任的代码"
             additionalContent={
               <img
                 src="/images/lp/armor_deno.png"
@@ -327,34 +325,32 @@ export default function Home({ data }: PageProps<Data>) {
             }
             reverse
           >
-            By default Deno provides no I/O access and is appropriate for
-            running untrusted code and auditing new
-            third&#8288;-&#8288;party&nbsp;code.
+            默认情况下，Deno 不提供 I/O
+            访问，适合于运行不受信任的代码和审计新的第三方代码。
           </ImageSubSection>
 
           <div class="grid items-center justify-between gap-18 lg:(gap-22 grid-cols-2)">
             {[{
               title: (
                 <>
-                  Fine grained<br />permission&nbsp;checks
+                  精细粒度的权限检查
                 </>
               ),
               body: (
                 <>
-                  Provide an allow-list to access only certain file system
-                  directories, network hosts, and environment&nbsp;variables.
+                  提供一个只访问特定文件系统目录、网络主机和环境变量的允许列表。
                 </>
               ),
               Icon: Icons.Permissions,
             }, {
               title: (
                 <>
-                  Safer NPM <br class="hidden lg:block" />packages
+                  更安全的 NPM 包
                 </>
               ),
               body: (
                 <>
-                  Install and run npm packages with less&nbsp;worry.
+                  安装和运行 npm 包，更少的顾虑。
                 </>
               ),
               Icon: Icons.Secure,
@@ -377,11 +373,10 @@ export default function Home({ data }: PageProps<Data>) {
         <div class="colorWash pt-11 pb-12 lg:(pt-28 pb-24)">
           <div class="section-x-inset-2xl md:text-center">
             <p class="text-white font-semibold text-xl pr-18 lg:(text-3xl pr-0)">
-              Used by a large community of developers and leading
-              technology&nbsp;companies:
+              被庞大的开发者社区和领先的技术公司使用：
             </p>
             <p class="text-white font-bold mt-4 mb-10 text-4xl lg:(mt-7 mb-13 text-7xl)">
-              Over 200k Monthly&nbsp;Actives
+              超过 20 万月度活跃量
             </p>
             <div class="grid grid-cols-2 justify-center items-center text-white gap-6 md:(gap-18 grid-cols-none grid-flow-col)">
               {companies.map((company) => (
