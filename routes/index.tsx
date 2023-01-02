@@ -274,7 +274,8 @@ export default function Home({ data }: PageProps<Data>) {
           >
             史上最快的 JavaScript 网络服务器。
             <br />
-            （在 Mac 上使用 wrk 测试的 <a
+            （在 Mac 上使用 wrk 测试的{" "}
+            <a
               class="text-mainBlue hover:underline"
               href="https://github.com/denoland/deno/blob/v1.28.0/cli/bench/http/deno_http_flash.js"
             >
