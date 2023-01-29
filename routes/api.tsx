@@ -1,4 +1,4 @@
-// Copyright 2022 the Deno authors. All rights reserved. MIT license.
+// Copyright 2022-2023 the Deno authors. All rights reserved. MIT license.
 
 import { PageProps, RouteConfig } from "$fresh/server.ts";
 import { Handlers } from "$fresh/server.ts";
@@ -41,7 +41,7 @@ export default function API(
         ogImage="api"
         keywords={["deno", "api", "built-in", "typescript", "javascript"]}
       />
-      <Header selected="API" manual />
+      <Header manual />
 
       {data.kind === "libraryInvalidVersion"
         ? (

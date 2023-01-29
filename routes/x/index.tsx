@@ -1,4 +1,4 @@
-// Copyright 2022 the Deno authors. All rights reserved. MIT license.
+// Copyright 2022-2023 the Deno authors. All rights reserved. MIT license.
 
 import { ComponentProps } from "preact";
 import { PageProps } from "$fresh/server.ts";
@@ -112,7 +112,11 @@ export default function ThirdPartyRegistryList({ data }: PageProps<Data>) {
         keywords={["deno", "third party", "module", "registry"]}
       />
       <div>
+<<<<<<< HEAD
         <Header selected="第三方模块" />
+=======
+        <Header />
+>>>>>>> 87eabe20afb9f213969bd5fba50f6a08f2ea9f6f
 
         <img
           src="/images/module_banner.png"
