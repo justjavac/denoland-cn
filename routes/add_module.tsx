@@ -16,11 +16,7 @@ export default function AddModulePage() {
         keywords={["deno", "registry", "modules", "javascript", "typescript"]}
       />
       <div>
-<<<<<<< HEAD
-        <Header selected="第三方模块" />
-=======
         <Header />
->>>>>>> 87eabe20afb9f213969bd5fba50f6a08f2ea9f6f
         <div class="section-x-inset-xl mt-16 mb-28 flex items-center flex-col gap-12 lg:(items-start flex-row gap-36)">
           <div class="text-base w-full lg:w-88 flex-shrink-0 space-y-5">
             <h1 class="font-bold text-3xl leading-none">添加模块</h1>

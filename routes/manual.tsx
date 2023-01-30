@@ -64,11 +64,7 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
           "typescript",
         ]}
       />
-<<<<<<< HEAD
-      <Header selected="手册" manual />
-=======
       <Header manual />
->>>>>>> 87eabe20afb9f213969bd5fba50f6a08f2ea9f6f
 
       <SidePanelPage
         sidepanel={
