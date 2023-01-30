@@ -1,4 +1,4 @@
-// Copyright 2022 the Deno authors. All rights reserved. MIT license.
+// Copyright 2022-2023 the Deno authors. All rights reserved. MIT license.
 
 import { PageProps, RouteConfig } from "$fresh/server.ts";
 import { Handlers } from "$fresh/server.ts";
@@ -64,7 +64,7 @@ export default function Manual({ params, url, data }: PageProps<Data>) {
           "typescript",
         ]}
       />
-      <Header selected="手册" manual />
+      <Header manual />
 
       <SidePanelPage
         sidepanel={
