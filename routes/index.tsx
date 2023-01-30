@@ -91,7 +91,8 @@ export default function Home({ data }: PageProps<Data>) {
                 </p>
                 <h1 class="font-bold text-5xl lg:text-7xl leading-none">
                   最简单的、<br />
-                  最安全的<br class="hidden sm:block lg:hidden" />JavaScript 运行时。
+                  最安全的<br class="hidden sm:block lg:hidden" />JavaScript
+                  运行时。
                 </h1>
               </div>
               <div class="inline-flex gap-4 flex-col lg:(gap-7 flex-row)">
