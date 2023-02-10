@@ -1,5 +1,9 @@
 // Copyright 2022-2023 the Deno authors. All rights reserved. MIT license.
 
+<<<<<<< HEAD:util/manual_utils.ts
+=======
+import { compare } from "$std/semver/mod.ts";
+>>>>>>> 5d876e6c223cdd88f1841d0eaa92f7cfceff52ae:utils/manual_utils.ts
 import { join } from "$std/path/mod.ts";
 import { getSourceURL } from "./registry_utils.ts";
 import VERSIONS from "@/versions.json" assert { type: "json" };
@@ -17,6 +21,16 @@ export interface TableOfContents {
   } | string;
 }
 
+<<<<<<< HEAD:util/manual_utils.ts
+=======
+// Returns true if the version is of the 0.x release line, or between 1.0.0 and
+// 1.12.0 inclusive. During this time the manual was part of the main repo. It
+// is now a separate repo.
+function isOldVersion(version: string) {
+  return compare(version, "v1.12.0") !== 1;
+}
+
+>>>>>>> 5d876e6c223cdd88f1841d0eaa92f7cfceff52ae:utils/manual_utils.ts
 export function basepath(version: string) {
   const manualPath = Deno.env.get("MANUAL_PATH");
   if (manualPath) {
