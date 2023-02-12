@@ -20,13 +20,8 @@
     "$he": "https://esm.sh/he@1.2.0?pin=v87",
     "$ga4": "https://raw.githubusercontent.com/denoland/ga4/04a1ce209116f158b5ef1658b957bdb109db68ed/mod.ts",
     "$ga": "https://deno.land/x/g_a@0.1.2/mod.ts",
-<<<<<<< HEAD
-    "$oak_commons": "https://deno.land/x/oak_commons@0.1.1/negotiation.ts",
-    "$doc_components/": "https://deno.land/x/deno_doc_components_cn@0.4.0/",
-=======
     "$oak_commons": "https://deno.land/x/oak_commons@0.3.1/negotiation.ts",
-    "$doc_components/": "https://deno.land/x/deno_doc_components@0.4.7/",
->>>>>>> 5d876e6c223cdd88f1841d0eaa92f7cfceff52ae
+    "$doc_components/": "https://deno.land/x/deno_doc_components_cn@0.4.0/",
     "$apiland/": "https://deno.land/x/apiland@1.5.0/",
     "$apiland_types": "https://deno.land/x/apiland@1.5.0/types.d.ts",
     "deno_doc/types": "https://deno.land/x/deno_doc@0.52.0/lib/types.d.ts",

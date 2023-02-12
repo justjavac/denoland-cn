@@ -14,13 +14,4 @@ HTML，我们只需渲染 html，否则我们 代理来自 S3 存储桶的文件
 
 Deno 的图片基于 MIT 许可协议发布（发布到公共领域，可免费使用）。
 
-<<<<<<< HEAD
-- [在 V1 Blog 中用到的图片，由 @hashrock 创作](https://deno.land/v1.jpg)
-=======
-## Image License
-
-These Deno images are distributed under the MIT license (public domain and free
-for use).
-
-- [A graphic for the v1 blog post by @hashrock](https://deno.land/images/artwork/v1.png)
->>>>>>> 5d876e6c223cdd88f1841d0eaa92f7cfceff52ae
+- [在 V1 Blog 中用到的图片，由 @hashrock 创作](https://deno.land/images/artwork/v1.png)
