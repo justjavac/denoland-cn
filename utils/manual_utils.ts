@@ -1,5 +1,9 @@
 // Copyright 2022-2023 the Deno authors. All rights reserved. MIT license.
 
+<<<<<<< HEAD
+=======
+import compareVersions from "$tiny-version-compare";
+>>>>>>> 39ef01853eccfc78cf4eb8b147f2fc31abd469a3
 import { join } from "$std/path/mod.ts";
 import { getSourceURL } from "./registry_utils.ts";
 import VERSIONS from "@/versions.json" assert { type: "json" };
@@ -17,6 +21,16 @@ export interface TableOfContents {
   } | string;
 }
 
+<<<<<<< HEAD
+=======
+// Returns true if the version is of the 0.x release line, or between 1.0.0 and
+// 1.12.0 inclusive. During this time the manual was part of the main repo. It
+// is now a separate repo.
+function isOldVersion(version: string) {
+  return compareVersions(version, "v1.12.0") !== 1;
+}
+
+>>>>>>> 39ef01853eccfc78cf4eb8b147f2fc31abd469a3
 export function basepath(version: string) {
   const manualPath = Deno.env.get("MANUAL_PATH");
   if (manualPath) {
