@@ -17,6 +17,20 @@ export interface TableOfContents {
   } | string;
 }
 
+<<<<<<< HEAD
+=======
+// Returns true if the version is of the 0.x release line, or between 1.0.0 and
+// 1.12.0 inclusive. During this time the manual was part of the main repo. It
+// is now a separate repo.
+function isOldVersion(version: string) {
+  try {
+    return compare(version, "v1.12.0") !== 1;
+  } catch {
+    return true;
+  }
+}
+
+>>>>>>> 690aa58051e4e5b80fd65b4d4df7212760d8889c
 export function basepath(version: string) {
   const manualPath = Deno.env.get("MANUAL_PATH");
   if (manualPath) {
