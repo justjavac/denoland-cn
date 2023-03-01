@@ -165,13 +165,8 @@ export default function GlobalSearch() {
   const [showModal, setShowModal] = useState(false);
   const [input, setInput] = useState("");
 
-<<<<<<< HEAD
-  const [results, setResults] = useState<Results | null>(null);
-  const [kind, setKind] = useState<SearchKinds>("全部");
-=======
   const [results, setResults] = useState<Results | null>(defaultResult);
-  const [kind, setKind] = useState<SearchKinds>("All");
->>>>>>> 59c359aa26802dcbbdc903e9469f5388c22bb517
+  const [kind, setKind] = useState<SearchKinds>("全部");
   const [page, setPage] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(1);
   const searchTimeoutId = useRef<number | null>(null);
@@ -201,14 +196,14 @@ export default function GlobalSearch() {
 
     if (input === "") {
       switch (kind) {
-        case "Manual": {
+        case "手册": {
           setResults({
             manual: defaultResult.manual,
           });
 
           return;
         }
-        case "All": {
+        case "全部": {
           setResults(defaultResult);
 
           return;
