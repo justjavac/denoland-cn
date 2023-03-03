@@ -17,6 +17,17 @@ export interface TableOfContents {
   } | string;
 }
 
+export function collectToC(toc: TableOfContents, base = ""): string[] {
+  const out = [];
+  for (const [path, content] of Object.entries(toc)) {
+    out.push(base + path);
+    if (typeof content !== "string" && content.children) {
+      out.push(...collectToC(content.children, base + path + "/"));
+    }
+  }
+  return out;
+}
+
 export function basepath(version: string) {
   const manualPath = Deno.env.get("MANUAL_PATH");
   if (manualPath) {
