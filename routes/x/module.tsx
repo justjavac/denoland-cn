@@ -46,6 +46,7 @@ import {
 } from "@/utils/search_insights_utils.ts";
 import { Footer } from "$doc_components/footer.tsx";
 import { processProperty } from "$doc_components/doc/utils.ts";
+import { match } from "https://deno.land/x/path_to_regexp@v6.2.0/index.ts";
 
 type Views = "doc" | "source" | "info";
 type Params = {
@@ -285,7 +286,16 @@ async function handlerRaw(
     });
   }
 
-  return fetchSource(name, version, path);
+  const start = performance.now();
+  const res = await fetchSource(name, version, path);
+  const end = performance.now();
+
+  res.headers.append(
+    "Server-Timing",
+    `fetchSource;dur=${Math.ceil(end - start)}`,
+  );
+
+  return res;
 }
 
 export default function Registry(
