@@ -19,8 +19,14 @@ interface Data {
 
 const announcement = {
   major: true,
+<<<<<<< HEAD
   href: "/manual/node",
   text: "NPM 兼容性现在已经上线！点击这里开始",
+=======
+  href: "https://deno.com/saaskit",
+  text:
+    "Announcing Deno SaaSKit: a modern, open-source template to start your SaaS today.",
+>>>>>>> 05cc85aad2f576eb78760b53f89ae5ad81f3da07
 } as const;
 
 export default function Home({ data }: PageProps<Data>) {
