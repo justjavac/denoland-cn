@@ -134,7 +134,7 @@ export const handler: Handlers<PageData> = {
     const isHTML = accepts(req, "application/*", "text/html") === "text/html" ||
       (req.headers.get("accept") === "*/*" &&
         req.headers.get("user-agent")?.includes("bot"));
-    if (!isHTML) return handlerRaw(req, params as Params);
+    if (!isHTML) return handlerRaw(req, url, remoteAddr, params as Params);
 
     let view: Views;
     if (url.searchParams.has("source")) {
@@ -174,9 +174,23 @@ export const handler: Handlers<PageData> = {
 
     let data: Data;
 
+    const id = crypto.randomUUID();
+    console.log(
+      `req_id=${id} req_url='${url}' req_ip=${
+        (remoteAddr as Deno.NetAddr).hostname
+      } apiland_url='${resURL}'`,
+    );
+    const time = performance.now();
+
     const res = await fetch(resURL, {
       redirect: "manual",
     });
+
+    console.log(
+      `req_id=${id} apiland_duration=${
+        performance.now() - time
+      } apiland_status=${res.status}`,
+    );
 
     if (res.status === 504) {
       console.error(`/x/${name} Timed out`);
@@ -258,6 +272,8 @@ const RAW_HEADERS = { "Access-Control-Allow-Origin": "*" };
 // on any services other than S3.
 async function handlerRaw(
   req: Request,
+  url: URL,
+  remoteAddr: Deno.Addr,
   { name, version, path }: Params,
 ): Promise<Response> {
   if (version === "") {
@@ -286,14 +302,22 @@ async function handlerRaw(
     });
   }
 
-  const start = performance.now();
-  const res = await fetchSource(name, version, path);
-  const end = performance.now();
-
-  res.headers.append(
-    "Server-Timing",
-    `fetchSource;dur=${Math.ceil(end - start)}`,
+  const id = crypto.randomUUID();
+  console.log(
+    `req_id=${id} req_url='${url}' req_ip=${
+      (remoteAddr as Deno.NetAddr).hostname
+    } fetchsource_module=${name} fetchsource_version=${version} fetchsource_path=${path}`,
   );
+  const time = performance.now();
+
+  const res = await fetchSource(name, version, path);
+  const dur = performance.now() - time;
+
+  console.log(
+    `req_id=${id} fetchsource_duration=${dur} fetchsource_status=${res.status}`,
+  );
+
+  res.headers.append("Server-Timing", `fetchSource;dur=${Math.ceil(dur)}`);
 
   return res;
 }
