@@ -15,21 +15,21 @@ Deno.test("get table of contents", async () => {
 Deno.test("get introduction file commit hash", () => {
   assertEquals(
     getFileURL("95b75e204ab3c0966e344a52c7bc9b9011ac345f", "/introduction"),
-    "https://cdn.jsdelivr.net/gh/denocn/deno_docs@master/introduction.md",
+    "https://raw.githubusercontent.com/denocn/deno_docs/master/introduction.md",
   );
 });
 
 Deno.test("get introduction file old repo", () => {
   assertEquals(
     getFileURL("v1.12.0", "/introduction"),
-    "https://cdn.jsdelivr.net/gh/denocn/deno_docs@master/introduction.md",
+    "https://raw.githubusercontent.com/denocn/deno_docs/master/introduction.md",
   );
 });
 
 Deno.test("get introduction file new repo", () => {
   assertEquals(
     getFileURL("v1.12.1", "/introduction"),
-    "https://cdn.jsdelivr.net/gh/denocn/deno_docs@master/introduction.md",
+    "https://raw.githubusercontent.com/denocn/deno_docs/master/introduction.md",
   );
 });
 
