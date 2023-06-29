@@ -1,6 +1,12 @@
 # Deno 中文网站
 
+<<<<<<< HEAD
 Deno 中文网站的源码。
+=======
+## This repository has been archived as the source code has been moved to be closed-source only instead. For any issues, please open an issue on https://github.com/denoland/website_feedback.
+
+[![Build Status](https://github.com/denoland/dotland/workflows/ci/badge.svg?branch=main&event=push)](https://github.com/denoland/dotland/actions)
+>>>>>>> 7d0b00da334e8c908c645f4b4bfd781f4bf1d224
 
 我们希望为 Deno 的模块提供漂亮且语义化的 URL。例如:
 https://denoland-cn.deno.dev/std/http/server.ts
