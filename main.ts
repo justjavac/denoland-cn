@@ -1,3 +1,3 @@
 Deno.serve((_: Request) => {
-  return Response.redirect("https://docs.denohub.com", 301);
+  return Response.redirect("https://docs.denohub.com/deno/", 301);
 });
